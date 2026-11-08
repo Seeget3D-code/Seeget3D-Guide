@@ -1,178 +1,744 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="见得空间三维建模准备工作：拍照设备选择、采集对象选择、拍摄方式、周围环境与成像质量。">
-  <meta name="color-scheme" content="light">
-  <title>准备工作 · 见得空间</title>
-  <style>
-    :root{--ink:#202832;--muted:#697482;--line:#e6eaf0;--blue:#2563eb;--paper:#fff;--background:#f7f9fc;--header:72px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:100px}
-    body{margin:0;background:var(--background);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
-    a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-    a:focus-visible,button:focus-visible{outline:3px solid #93b4ff;outline-offset:4px;border-radius:5px}
-    button{font:inherit;cursor:pointer}
-    .skip-link{position:fixed;left:16px;top:-100px;z-index:10;background:white;padding:8px 16px;border:1px solid var(--blue)}.skip-link:focus{top:12px}
-    .topbar{height:var(--header);position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
-    .topbar-inner{max-width:1240px;margin:auto;height:100%;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:650;letter-spacing:.03em;font-size:17px}
-    .brand-mark{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--blue);color:white}
-    .brand svg{width:20px;height:20px}
-    .brand-divider{height:16px;width:1px;background:#dce1e8;margin:0 6px}.brand-caption{font-size:13px;font-weight:400;letter-spacing:0;color:var(--muted)}
-    .header-actions{display:flex;gap:18px;align-items:center;font-size:13px}
-    .source-link{color:var(--muted);display:flex;gap:6px;align-items:center}.source-link svg{width:14px;height:14px}
-    .print-button{display:none;align-items:center;gap:7px;padding:6px 12px;border:1px solid #dde3eb;background:white;border-radius:7px;color:#465364;font-size:13px;line-height:1.8}
-    .print-button svg{width:15px;height:15px}.print-button:hover{background:#f4f7fc;border-color:#b9c7dc}
-    .layout{max-width:1240px;margin:0 auto;padding:40px 32px 60px;display:grid;grid-template-columns:208px minmax(0,1fr);gap:42px;align-items:start}
-    .sidebar{position:sticky;top:112px;padding-top:11px}
-    .toc-title{margin:0 0 17px 14px;color:#8993a1;font-size:11px;font-weight:650;letter-spacing:.13em}
-    .toc{display:flex;flex-direction:column;gap:5px}
-    .toc a{display:flex;align-items:center;gap:11px;padding:9px 13px;border-radius:7px;font-size:13px;color:#647080;line-height:1.8;border:1px solid transparent}
-    .toc a:hover{color:var(--blue);background:#eef3fb;text-decoration:none}.toc a[aria-current="location"]{color:#1d54c5;background:#eaf1ff;border-color:#e0eaff;font-weight:600}
-    .toc-number{font-size:11px;opacity:.65;font-variant-numeric:tabular-nums}
-    .sidebar-note{border-top:1px solid var(--line);margin-top:27px;padding:19px 14px 0;color:#8993a1;font-size:12px;line-height:1.9}
-    .sidebar-note strong{font-weight:500;color:#687587;display:block}
-    main{min-width:0}
-    .document{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:46px 52px 40px;box-shadow:0 5px 20px rgba(30,53,88,.025)}
-    .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--blue);margin:0 0 10px}
-    h1{font-size:36px;line-height:1.4;letter-spacing:.015em;margin:0 0 12px;font-weight:650}
-    .document-meta{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:#8993a1;font-size:12px;margin-bottom:28px}.meta-dot{width:3px;height:3px;border-radius:100%;background:#b7c0cb}
-    .intro{font-size:16px;line-height:1.95;color:#5e6a78;margin:0 0 36px;padding-bottom:32px;border-bottom:1px solid var(--line)}
-    .content-section{scroll-margin-top:100px}.content-section+.content-section{margin-top:38px;padding-top:32px;border-top:1px solid var(--line)}
-    h2{font-size:21px;line-height:1.6;letter-spacing:.01em;font-weight:650;margin:0 0 18px;color:#1e2b3c}
-    p{margin:0 0 15px}ul{margin:14px 0 0;padding-left:21px}li{padding-left:4px;margin-bottom:12px}li:last-child{margin-bottom:0}li::marker{color:#a3b0c2;font-size:.8em}
-    strong{font-weight:600;color:#283549}
-    .image-note{margin:22px 0 0;padding:16px 19px;border-radius:7px;background:#f7f9fc;border:1px dashed #dce3ed;color:#728094;font-size:13px;line-height:1.8;display:flex;align-items:flex-start;gap:11px}
-    .image-note svg{width:18px;height:18px;flex-shrink:0;margin-top:3px;color:#94a3b8}.image-note span{display:block;color:#98a1ad;font-size:11px;margin-bottom:3px}
-    mark{background:#edf3ff;color:#1e55c7;border-radius:3px;padding:1px 5px;font-weight:600}
-    .archive-note{margin-top:36px;padding:18px 20px;border-left:3px solid #c5d5ef;background:#f7f9fc;font-size:12px;color:#7b8796;line-height:1.9}.archive-note strong{color:#64748b;font-weight:500}
-    .page-footer{display:flex;justify-content:space-between;gap:16px;padding:21px 2px 0;font-size:12px;color:#94a0b1}.page-footer a{color:#7f8ca0}
-    @media(min-width:1500px){.layout{padding-top:48px}}
-    @media(max-width:1050px){.layout{grid-template-columns:178px minmax(0,1fr);gap:24px;padding:30px 24px 40px}.document{padding:36px}.topbar-inner{padding:0 24px}.toc a{padding:8px 10px;font-size:12px;gap:9px}}
-    @media(max-width:760px){:root{--header:62px}html{scroll-padding-top:84px}.topbar-inner{padding:0 20px}.brand{font-size:16px}.brand-divider,.brand-caption{display:none}.header-actions{gap:13px}.print-button{padding:5px 9px}.layout{display:block;padding:22px 16px 32px}.sidebar{position:static;padding:0;margin-bottom:22px}.toc-title{margin:0 0 10px 4px}.toc{display:flex;flex-direction:row;flex-wrap:wrap;gap:5px}.toc a{padding:5px 10px;font-size:12px;gap:7px;border:1px solid var(--line);background:white}.sidebar-note{display:none}.document{padding:28px 23px;border-radius:10px}h1{font-size:30px}h2{font-size:19px}.intro{font-size:15px;margin-bottom:28px;padding-bottom:26px}.content-section{scroll-margin-top:84px}.content-section+.content-section{margin-top:29px;padding-top:25px}.image-note{padding:14px}.archive-note{padding:15px}.document-meta{margin-bottom:23px}body{font-size:14px}.page-footer{font-size:11px}.source-link{font-size:12px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-    @media print{html{scroll-behavior:auto}body{background:white;color:#111;font-size:11pt;line-height:1.65}.topbar,.sidebar,.page-footer,.skip-link{display:none!important}.layout{display:block;max-width:none;margin:0;padding:0}.document{padding:0;border:0;box-shadow:none;border-radius:0}h1{font-size:25pt}h2{font-size:15pt;break-after:avoid}li,.image-note{break-inside:avoid}.content-section{scroll-margin-top:0}.content-section+.content-section{margin-top:22px;padding-top:20px}.intro{margin-bottom:24px;padding-bottom:20px}.archive-note{margin-top:24px;font-size:9pt}.document-meta{margin-bottom:20px}.image-note,mark{-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:A4;margin:18mm}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="见得空间用户文档：概述、视频教程、快速开始、详细教程及 WEB 端用户文档。按完整目录整理的静态阅读页面，支持全文搜索与手机浏览。">
+<meta name="color-scheme" content="light">
+<title>见得空间用户文档</title>
+<style>
+:root{--blue:#2563eb;--ink:#233044;--muted:#778497;--line:#e5eaf1;--bg:#f7f9fc;--header:68px;--left:264px}
+*{box-sizing:border-box}html{scroll-padding-top:95px;scroll-behavior:smooth}body{margin:0;color:var(--ink);background:var(--bg);font:14px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid #adc6ff;outline-offset:3px}button:disabled{cursor:default}svg{display:block}button svg{width:17px;height:17px}h1,h2,h3{color:#1e2b3d;line-height:1.55;letter-spacing:.01em}h1{font-size:31px;margin:0 0 14px;font-weight:650}h2{font-size:21px;font-weight:650;margin:34px 0 16px;scroll-margin-top:0}h3{font-size:17px;margin:27px 0 13px;scroll-margin-top:0}h4,h5,h6{scroll-margin-top:0}p{margin:0 0 16px}strong{font-weight:600}small{font-size:11px}code{font-size:.9em;background:#eef2f7;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}pre{padding:16px;overflow:auto;background:#f4f6fa;border:1px solid var(--line);border-radius:6px}pre code{padding:0;background:transparent}ul,ol{padding-left:23px;margin:13px 0 20px}li{padding-left:3px;margin-bottom:10px}li>p{margin-bottom:9px}li::marker{color:#98a5b8}li ul{margin:9px 0 12px}.skip-link{position:fixed;left:12px;top:-70px;z-index:50;background:white;border:1px solid var(--blue);padding:8px 14px}.skip-link:focus{top:10px}
+.topbar{height:var(--header);position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}.topbar-inner{max-width:1640px;height:100%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:14px}.brand{display:flex;align-items:center;gap:10px;color:#202d3e;font-size:17px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}.brand-logo{display:grid;place-items:center;background:var(--blue);border-radius:9px;width:31px;height:31px;color:#fff}.brand-logo svg{height:21px;width:21px}.brand-divider{height:17px;background:var(--line);width:1px;margin:0 5px}.brand-caption{font-weight:400;font-size:14px;color:#8a96a6}.top-actions{display:flex;align-items:center;gap:16px}.snapshot-badge{font-size:11px;line-height:1.8;padding:3px 9px;background:#eff4fc;color:#7889a3;border:1px solid #e4ebf6;border-radius:20px}.print-button,.menu-button,.copy-button{display:none;align-items:center;justify-content:center;gap:7px;border:1px solid #dce3ed;background:#fff;color:#516074;line-height:1.8;padding:6px 11px;border-radius:6px;font-size:12px}.print-button:hover,.menu-button:hover,.copy-button:hover{background:#f2f6fc}.enhanced .print-button,.enhanced .copy-button{display:inline-flex}.menu-button{padding:7px}.layout{max-width:1640px;margin:0 auto;display:grid;grid-template-columns:var(--left) minmax(0,1fr) 184px;gap:28px;padding:0 30px;align-items:start}.sidebar{position:sticky;top:var(--header);height:calc(100vh - var(--header));min-width:0;border-right:1px solid var(--line);padding:27px 18px 24px 0;display:flex;flex-direction:column}.sidebar-header{padding:0 8px 16px}.search-wrap{position:relative;display:none}.enhanced .search-wrap{display:block}.search-wrap svg{position:absolute;left:11px;top:13px;width:15px;height:15px;color:#9aa6b6}.search-input{width:100%;padding:8px 48px 8px 33px;border:1px solid #e0e6ef;border-radius:7px;line-height:1.8;background:#fff;color:#34445b;font-size:12px}.search-input::placeholder{color:#9ba6b5}.search-key{position:absolute;right:10px;top:11px;font-size:10px;color:#a8b1bf;pointer-events:none}.navigation-scroll{overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;flex:1;padding:0 7px 16px 2px}.home-link{display:flex;gap:10px;align-items:center;padding:8px 11px;border-radius:6px;color:#55647a;margin-bottom:13px;font-size:13px}.home-link svg{width:15px;height:15px}.home-link[aria-current="page"]{background:#eaf1ff;color:#2158ca}.nav-heading{font-size:10px;letter-spacing:.13em;color:#99a5b4;margin:0 11px 12px}.nav-group{margin-bottom:6px}.nav-group>summary{display:flex;align-items:center;cursor:pointer;gap:8px;list-style:none;padding:6px 7px;color:#536176;font-size:12px;font-weight:600;border-radius:5px}.nav-group>summary::-webkit-details-marker{display:none}.nav-group>summary:before{content:'›';display:inline-block;font-size:17px;line-height:1;color:#97a3b4;transform:rotate(0deg);transition:transform .15s}.nav-group[open]>summary:before{transform:rotate(90deg)}.nav-group>summary:hover{background:#edf2f9}.nav-children{margin-left:13px;padding-left:7px;border-left:1px solid #e7ecf3}.nav-children .nav-group>summary{font-weight:400;font-size:12px}.doc-link{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:7px 9px;color:#67758a;font-size:12px;line-height:1.75;margin:2px 0;border-radius:5px;overflow-wrap:anywhere}.doc-link:hover{background:#edf2fa;color:#245bc4;text-decoration:none}.doc-link[aria-current="page"]{background:#e8f0ff;color:#2158c9;font-weight:600}.pending-dot{flex-shrink:0;width:5px;height:5px;border-radius:50%;background:#d8a764;margin-right:3px}.branch-pending{font-size:10px;line-height:1.8;color:#9ba5b3;margin:5px 8px 11px}.sidebar-footer{font-size:10px;color:#98a4b5;border-top:1px solid var(--line);padding:15px 10px 0;line-height:1.9}.search-results[hidden],.nav-tree[hidden]{display:none}.search-results>p{font-size:11px;color:#8b98ab;margin:8px 10px 14px}.result-link{display:block;color:#52627b;padding:10px;border-radius:6px;border:1px solid #e5eaf2;margin-bottom:8px;background:#fff}.result-link:hover{background:#eff4fe;text-decoration:none}.result-link strong{font-size:12px;display:block;color:#355378;line-height:1.7}.result-link small{display:block;font-size:10px;line-height:1.8;color:#8a97aa;margin-top:4px;overflow-wrap:anywhere}.result-link .result-path{color:#657994;font-size:9px}.empty-state{background:#f7f9fc;border-style:solid}.overview-groups{align-items:start}.pending-list li{margin-bottom:7px}.pending-list a{color:#8f7751}.result-link mark{background:#fff1bc;color:inherit;border-radius:2px}.main{min-width:0;padding:34px 0 48px}.global-note{display:flex;gap:14px;justify-content:space-between;align-items:center;font-size:11px;line-height:1.9;color:#8090a7;margin:0 3px 17px;flex-wrap:wrap}.global-note a{white-space:nowrap;color:#8192ac}.paper{background:#fff;border:1px solid var(--line);border-radius:11px;box-shadow:0 5px 23px rgba(37,64,105,.025);min-height:650px;padding:40px 44px;overflow-wrap:break-word}.breadcrumbs{font-size:11px;color:#95a0b1;margin:0 0 12px}.doc-meta{display:flex;align-items:center;flex-wrap:wrap;gap:20px;font-size:11px;color:#99a4b3;border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:25px}.doc-meta a{color:#8796ac}.doc-body{margin-top:24px;font-size:14px;line-height:1.95;color:#3b485b}.doc-body a{overflow-wrap:anywhere}.doc-body>h2:first-child{margin-top:0}.doc-body img{display:block;max-width:100%;height:auto;margin:17px 0;border:1px solid var(--line);border-radius:5px;padding:7px;background:white}.doc-body blockquote{margin:21px 0;padding:15px 19px;background:#f7f9fd;border:1px dashed #dbe4f0;border-radius:7px;color:#6f8097}.doc-body blockquote p:last-child{margin-bottom:0}.media-description{padding:12px 16px;background:#f5f8fc;border-left:3px solid #d7e3f6;color:#77879c;font-size:12px;line-height:1.9}.doc-body blockquote .media-description{border:0;padding:0;background:transparent}.document-notice{border:1px solid #f0e4ca;border-radius:6px;background:#fdfaf3;color:#9b865f;font-size:11px;line-height:1.9;padding:11px 15px;margin-bottom:23px}.document-notice.subtle{background:#f7f9fc;border-color:#e5eaf2;color:#8d99aa}.table-wrap{overflow:auto;max-width:100%;margin:20px 0 26px;border:1px solid #e2e8f1;border-radius:7px}table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.85;text-align:left;min-width:410px}th,td{padding:11px 14px;vertical-align:top;border-bottom:1px solid #e8edf4;border-right:1px solid #e8edf4}th:last-child,td:last-child{border-right:0}tr:last-child td{border-bottom:0}th{font-weight:600;color:#53647e;background:#f4f7fc}tbody tr:nth-child(even){background:#fcfdff}.version-footnote{border-top:1px solid var(--line);padding-top:20px;margin-top:35px;color:#a0aaba;font-size:10px;line-height:1.9}.neighbors{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);margin-top:23px;padding-top:20px}.neighbors a{color:#5c7090;line-height:1.8;font-size:12px;display:block}.neighbors a:last-child{text-align:right}.neighbors small{display:block;color:#a0aaba;margin-bottom:4px;font-size:10px}.page-footer{display:flex;justify-content:space-between;padding-top:19px;color:#a0aabb;font-size:10px;gap:15px}.page-footer a{color:#8a99af}.outline{position:sticky;top:105px;padding:4px 0 24px 2px;max-height:calc(100vh - 135px);overflow:auto;scrollbar-width:thin}.outline p{font-size:10px;font-weight:600;letter-spacing:.1em;color:#98a3b3;margin:0 0 15px 10px}.outline a{display:block;padding:6px 10px;border-left:1px solid #e1e7f1;font-size:11px;color:#8996aa;line-height:1.8;overflow-wrap:anywhere}.outline a.level-3{padding-left:19px;font-size:10px}.outline a:hover{color:var(--blue);text-decoration:none}.outline a[aria-current="location"]{color:#2359c4;border-left:2px solid #4d7ce0;background:#eff4fe;padding-left:9px}.outline .empty-outline{font-size:11px;color:#a0aabb;margin:0 10px;line-height:1.9}.inline-outline{display:none}.enhanced .doc-page,.enhanced .overview{display:none}.enhanced .doc-page.active,.enhanced .overview.active{display:block}.doc-page:not(:last-child){margin-bottom:65px}.enhanced .doc-page{margin-bottom:0}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.12em;color:#4275d0;margin:0 0 13px}.overview-intro{font-size:14px;color:#8b97a9;line-height:1.9;margin:0 0 29px}.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-bottom:26px}.summary-grid>div{border:1px solid #e5ebf5;background:#f8faff;border-radius:8px;padding:18px}.summary-grid strong{display:block;font-size:25px;line-height:1.5;color:#3e67ae;font-weight:600}.summary-grid span{font-size:10px;color:#8d9bb0}.archive-callout{background:#f9fafc;border-left:3px solid #c1d4f5;padding:16px 18px;margin:0 0 28px;font-size:11px;line-height:1.9;color:#8a97a9}.archive-callout strong{display:block;color:#61758e;font-weight:600;margin-bottom:6px}.archive-callout p{margin:0 0 7px}.archive-callout p:last-child{margin:0}.overview-groups{display:grid;grid-template-columns:1fr 1fr;gap:21px}.overview-groups>section{border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:17px 18px 14px}.overview-groups h2{font-size:14px;margin:0 0 9px;color:#556986}.overview-links>a{display:flex;align-items:center;gap:8px;font-size:11px;padding:7px 0;line-height:1.7;color:#8090a8;border-bottom:1px solid #f0f3f8}.overview-links>a:last-child{border-bottom:0}.overview-links>a>span{margin-left:auto;color:#b2bfd1}.overview-links small{font-size:9px;color:#b79863;white-space:nowrap}.pending-list{margin-top:30px;background:#fcfbf7;border:1px solid #efe9da;border-radius:7px;padding:18px 20px;font-size:11px;color:#9b8a6b}.pending-list h2{margin:0 0 9px;font-size:13px;color:#8f7f60}.pending-list p{margin:5px 0}.pending-state{background:#fafbfd;padding:34px 24px;text-align:center;border:1px dashed #dde5ef;border-radius:8px;margin:25px 0 40px;color:#94a1b3}.pending-state h2{font-size:17px;margin:13px 0 10px;color:#70829c}.pending-state p{font-size:12px;margin:0}.pending-icon{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#edf2f9;color:#9bacc4;font-size:25px}.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:60;background:#26364d;color:white;border-radius:7px;padding:10px 18px;font-size:12px;box-shadow:0 5px 20px #23304420}.toast[hidden],.overlay{display:none}
+.doc-link{font-size:13px;color:#5e6c80}.overview-intro{color:#68778d}.overview-links>a{font-size:12px;color:#607189}.archive-callout{color:#68788e}.summary-grid span{font-size:11px;color:#738197}.sidebar-footer{font-size:11px;color:#758298}.breadcrumbs,.doc-meta,.global-note,.version-footnote{color:#748196}.document-notice{color:#856d44}
+@media(min-width:1700px){.main{padding-top:42px}.paper{padding:47px 54px}}
+@media(max-width:1280px){:root{--left:236px}.layout{grid-template-columns:var(--left) minmax(0,1fr);gap:23px;padding:0 24px}.outline{display:none}.paper{padding:35px}.topbar-inner{padding:0 24px}.inline-outline{display:block;border:1px solid #e5ebf4;background:#fafbfe;border-radius:6px;padding:10px 14px;margin:0 0 25px;font-size:11px;color:#8392a8}.inline-outline summary{cursor:pointer}.inline-outline a{display:block;padding:5px;color:#7d8fa9}.inline-outline>summary{margin-bottom:5px}}
+@media(max-width:850px){:root{--left:260px;--header:61px}.topbar-inner{padding:0 17px}.brand{font-size:16px}.brand-caption,.brand-divider,.snapshot-badge{display:none}.top-actions{gap:7px}.print-button,.copy-button{font-size:11px;padding:6px 8px}.copy-button svg{display:none}.enhanced .menu-button{display:inline-flex}.layout{display:block;padding:0 16px}.sidebar{height:auto;max-height:none;position:static;border-right:0;padding:20px 0 10px}.navigation-scroll{max-height:420px}.enhanced .sidebar{position:fixed;top:var(--header);left:0;bottom:0;height:calc(100vh - var(--header));z-index:40;background:#f9fbfe;border-right:1px solid var(--line);width:286px;padding:22px 16px 22px 12px;transform:translateX(-100%);visibility:hidden;transition:transform .2s,visibility .2s}.enhanced .navigation-scroll{max-height:none}.enhanced.menu-open .sidebar{transform:translateX(0);visibility:visible}.enhanced.menu-open .overlay{display:block;position:fixed;inset:var(--header) 0 0;background:#172a4733;z-index:30}.main{padding:22px 0 32px}.global-note{font-size:10px;margin-bottom:12px;gap:7px}.paper{padding:27px 23px;border-radius:9px;min-height:500px}h1{font-size:27px}h2{font-size:19px}h3{font-size:16px}.doc-body{font-size:13px}.doc-meta{gap:13px;margin-bottom:23px;padding-bottom:20px}.summary-grid{gap:8px}.summary-grid>div{padding:13px 11px}.summary-grid strong{font-size:22px}.summary-grid span{font-size:9px}.overview-groups{gap:13px}.overview-groups>section{padding:15px}.overview-intro{font-size:13px}.archive-callout{padding:14px}.neighbors{gap:14px}.page-footer{font-size:9px}}
+@media(max-width:430px){.brand{font-size:14px;gap:7px}.brand-logo{width:27px;height:27px;border-radius:7px}.copy-button{display:none!important}.overview-groups{grid-template-columns:1fr}.paper{padding:24px 19px}.layout{padding:0 12px}.summary-grid>div{padding:11px 8px}.summary-grid span{font-size:9px}.topbar-inner{padding:0 13px}.top-actions{gap:7px}.global-note>a{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.start-section .section-heading{margin-top:0}.section-heading{font-size:18px;margin:32px 0 16px}.start-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.start-card{display:flex;flex-direction:column;min-width:0;padding:19px 17px;border:1px solid #dfe8f7;border-radius:8px;background:#f8faff;color:var(--ink);transition:border-color .15s,background .15s}.start-card:hover{text-decoration:none;border-color:#a7c1ed;background:#f0f5ff}.step-number{font-size:12px;letter-spacing:.08em;color:#5480cb;font-weight:600}.start-card h3{font-size:16px;line-height:1.6;margin:10px 0 9px}.start-card p{font-size:12px;line-height:1.9;color:#6c7c93;margin:0 0 18px}.start-link{font-size:11px;color:#3568bd;margin-top:auto;line-height:1.8}.reading-tip{font-size:11px;color:#7a889b;line-height:1.9;margin:16px 0 0}.overview-links small{color:#8b99ac}.overview-intro{margin-bottom:28px}
+@media(max-width:650px){.start-grid{grid-template-columns:1fr;gap:11px}.start-card{padding:16px 18px}.start-card h3{margin:7px 0 6px}.start-card p{margin-bottom:11px}.section-heading{font-size:17px}.reading-tip{margin-top:15px}}
+
+
+/* Soft blue article theme */
+.doc-body>h2{width:fit-content;max-width:100%;padding:7px 13px;background:#f1f6fd;border:1px solid #e2ebf8;border-radius:8px;color:#496587;overflow-wrap:anywhere}
+.doc-body>h3{width:fit-content;max-width:100%;padding:6px 11px;background:#f7fafe;border:1px solid #e6edf7;border-radius:7px;color:#5b7190;overflow-wrap:anywhere}
+.inline-outline{background:#f7fafe;border-color:#e2eaf6;color:#61758f}
+.inline-outline a{color:#516d95}
+.outline a[aria-current="location"]{color:#4a6d9b;border-left-color:#a8c2e2;background:#f2f6fc}
+.doc-body blockquote{background:#f7fafe;border-color:#dfe8f6;color:#63758d}
+th{background:#eef4fc;color:#4d6687}
+tbody tr:nth-child(even){background:#fafcff}
+.pending-state,.empty-state{background:#f7fafe;border-color:#e1e9f5;color:#71819a}
+.pending-state h2{color:#5d7290}
+.pending-icon{background:#eaf1fa;color:#8199b7}
+@media(max-width:650px){.doc-body>h2{padding:7px 11px}.doc-body>h3{padding:6px 10px}}
+
+@media print{html{scroll-behavior:auto}body{background:white;font-size:10pt;line-height:1.65}.topbar,.sidebar,.global-note,.outline,.page-footer,.neighbors,.inline-outline,.skip-link,.toast,.overlay{display:none!important}.layout{display:block;padding:0;max-width:none}.main{padding:0}.paper{border:0;box-shadow:none;padding:0;min-height:0}.doc-body{font-size:10pt;line-height:1.75}.doc-meta{padding-bottom:15px;margin-bottom:20px}.doc-meta a{display:none}h1{font-size:22pt}h2{font-size:15pt;break-after:avoid;margin-top:25px}h3{font-size:12pt;break-after:avoid}.doc-body img,blockquote,tr{break-inside:avoid}.table-wrap{overflow:visible;border-radius:0}table{min-width:0;font-size:8pt}th,td{padding:7px}.document-notice{font-size:8pt}.version-footnote{font-size:7pt}.summary-grid,.archive-callout,.media-description,th{-webkit-print-color-adjust:exact;print-color-adjust:exact}.printing-all .doc-page{display:block!important;break-before:page}.printing-all .overview{display:block!important}.printing-all .doc-page{margin:0}.overview-groups{display:block}.overview-groups>section{margin-bottom:16px} @page{size:A4;margin:17mm}}
+</style>
 </head>
-<body id="top">
-  <a class="skip-link" href="#main-content">跳到正文</a>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9M8 5.25l8 4.5"/></svg></span>
-        见得空间<span class="brand-divider" aria-hidden="true"></span><span class="brand-caption">使用文档</span>
-      </div>
-      <div class="header-actions">
-        <a class="source-link" href="https://seegetspace.yuque.com/org-wiki-seegetspace-dfn6kw/oi5gnd/dszt5ofnsetgd779" target="_blank" rel="noopener noreferrer">查看原文<svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 3h6v6M17 3l-9 9M8 4H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4"/></svg></a>
-        <button class="print-button" id="print-button" type="button"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M5 7V3h10v4M5 14H3V7h14v7h-2M5 11h10v6H5Z"/><path d="M14 9h1"/></svg>打印</button>
-      </div>
-    </div>
-  </header>
-  <div class="layout">
-    <aside class="sidebar" aria-label="文档导航">
-      <p class="toc-title" id="toc-label">本文目录</p>
-      <nav class="toc" aria-labelledby="toc-label">
-        <a href="#equipment"><span class="toc-number" aria-hidden="true">01</span>拍照设备选择</a>
-        <a href="#subject"><span class="toc-number" aria-hidden="true">02</span>采集对象选择</a>
-        <a href="#shooting"><span class="toc-number" aria-hidden="true">03</span>拍摄方式</a>
-        <a href="#environment"><span class="toc-number" aria-hidden="true">04</span>周围环境</a>
-        <a href="#quality"><span class="toc-number" aria-hidden="true">05</span>成像质量</a>
-      </nav>
-      <div class="sidebar-note"><strong>三维建模 · 入门指南</strong>从数据采集开始，<br>为模型还原做好准备。</div>
-    </aside>
-    <main id="main-content">
-      <article class="document" aria-labelledby="document-title">
-        <header>
-          <p class="eyebrow">三维建模 / 入门指南</p>
-          <h1 id="document-title">准备工作</h1>
-          <div class="document-meta"><span>见得空间</span><span class="meta-dot" aria-hidden="true"></span><span>5 个章节</span><span class="meta-dot" aria-hidden="true"></span><span>存档于 <time datetime="2026-10-14">2026-10-14</time></span></div>
-          <p class="intro">将一组数据还原成三维模型，最终的效果受到物体本身、拍摄方式、环境等因素影响，我们的建议如下：</p>
-        </header>
-        <section class="content-section" id="equipment" aria-labelledby="equipment-title">
-          <h2 id="equipment-title">1. 拍照设备选择</h2>
-          <ul>
-            <li><strong>手机：</strong> 使用手机拍照或从相册导入照片/视频进行建模。</li>
-            <li><strong>连接第三方相机：</strong> 目前支持Pilot Go、Insta 360两种设备连接拍照，这些设备都可以用于拍摄建模所需的数据，但需要注意它们的镜头质量和分辨率。</li>
-            <li><strong>避免使用鱼眼或360°运动相机：</strong> 这类设备通常会产生较大的畸变，这会在后期处理中引入不必要的复杂性。</li>
-          </ul>
-          <div class="image-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></svg><div><span>原文图片说明</span>Pilot GO、insta 360、手机、单反等支持的连接设备</div></div>
-        </section>
-        <section class="content-section" id="subject" aria-labelledby="subject-title">
-          <h2 id="subject-title">2. 采集对象选择</h2>
-          <p>应尽量选择特征点明显、纹理丰富的静止物体，以下物体不适合建模或者建模效果不佳：</p>
-          <ul>
-            <li><strong>特征点明显、纹理丰富的静止物体：</strong> 这些特征对于三维建模软件中的图像匹配和纹理映射非常重要。如：运动中的玩具；</li>
-            <li><strong>避免移动的物体：</strong> 因为建模软件需要对比不同照片中的相同点，移动的物体会导致匹配失败。如：运动中的玩具；</li>
-            <li><strong>透明或半透明物体：</strong> 这些物体会导致光线折射，影响照片的质量和纹理的捕捉。如：玻璃杯、矿泉水；</li>
-            <li><strong>反光和自反光的物体：</strong> 高光区域会掩盖物体的纹理信息，使得建模变得困难。如：镜子；</li>
-            <li><strong>大面积纯色的物体：</strong> 缺乏纹理和颜色变化会导致建模软件难以区分不同的区域。如：白墙、纯黑T恤；</li>
-            <li><strong>纹理重复或对称的物体：</strong> 这类物体会导致建模软件在匹配特征点时产生混淆。如：栏杆。</li>
-          </ul>
-          <div class="image-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></svg><div><span>原文图片说明</span>6种不适合建模的物体对比图</div></div>
-        </section>
-        <section class="content-section" id="shooting" aria-labelledby="shooting-title">
-          <h2 id="shooting-title">3. 拍摄方式</h2>
-          <p>重叠度是保证三维模型完整度的重要指标，重叠度是指相邻照片之间所摄内容的重叠程度，无论您在采集何种形状的物体都需要保证相邻照片的重叠度不低于 <mark>60%</mark>；</p>
-          <ul>
-            <li><strong>柱状物体：</strong> 围绕物体进行拍摄时，建议每隔一定的角度（如15度或20度）拍摄一张照片，以确保足够的重叠度。</li>
-            <li><strong>平面物体：</strong> 从左到右、从上到下逐层拍摄时，同样要确保每张照片之间的重叠度足够高。对于大型平面物体，建议使用三脚架和遥控器来确保稳定性和拍摄的一致性。</li>
-          </ul>
-        </section>
-        <section class="content-section" id="environment" aria-labelledby="environment-title">
-          <h2 id="environment-title">4. 周围环境</h2>
-          <p>在进行三维模型数据采集时，周围环境的选择和设置对最终效果有着重要影响。以下是一些关于周围环境的建议：</p>
-          <ul>
-            <li><strong>光线条件：</strong> 在较明亮的地方进行采集，这有助于确保照片清晰度和细节。如果环境光线不足，可以考虑使用灯箱或补光灯来增强光线。确保光线均匀分布，避免强烈的光影对比和阴影。</li>
-            <li><strong>物件位置稳定性：</strong> 物件放置后，在拍摄过程中不要改变其与环境的相对位置。这样可以确保每张照片中物件的位置和角度一致，有助于建模软件在匹配特征点时更加准确。</li>
-            <li><strong>背景选择：</strong> 尽量挑选背景单一的拍摄环境，避免在杂乱的环境下拍摄。单一背景有助于减少建模软件在识别特征点时的干扰，提高建模的精度和效率。</li>
-          </ul>
-        </section>
-        <section class="content-section" id="quality" aria-labelledby="quality-title">
-          <h2 id="quality-title">5. 成像质量</h2>
-          <p>成像质量是影响三维模型质量的关键因素之一。以下是一些关于成像质量的建议：</p>
-          <ul>
-            <li><strong>照片清晰度：</strong> 确保照片清晰，避免出现模糊、失焦等情况。使用高质量的相机和镜头，以及合适的拍摄参数，可以获得更清晰的照片。</li>
-            <li><strong>曝光控制：</strong> 避免照片过曝或是过暗。过曝的照片会导致高亮区域失去细节，而过暗的照片则会影响整体画面的清晰度。合理设置曝光值，确保照片中的细节得以保留。</li>
-            <li><strong>照片检查与补拍：</strong> 在上传照片之前，对照片进行检查，删除不合格的照片。不合格的照片包括模糊、失焦、过曝、过暗等。如果发现有缺失或不合格的照片，必要时进行重新补拍，以确保数据的完整性和准确性。</li>
-          </ul>
-          <div class="image-note"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8" cy="9" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></svg><div><span>原文图片说明</span>用手机拍摄效果差与拍摄效果清晰对比图</div></div>
-        </section>
-        <aside class="archive-note" aria-label="版本说明"><strong>版本说明</strong><br>本页面依据 2026-10-14 保存的语雀文档全文生成，正文保留该存档措辞。线上文档目前需要登录，尚未核验后续更新。存档中三处配图仅有说明文字，本页面按文字保留。</aside>
-      </article>
-      <footer class="page-footer"><span>见得空间 · 准备工作</span><a href="#top">返回顶部 ↑</a></footer>
-    </main>
-  </div>
-  <script>
-    (function () {
-      'use strict';
-      var printButton = document.getElementById('print-button');
-      printButton.style.display = 'inline-flex';
-      printButton.addEventListener('click', function () { window.print(); });
-      var sections = Array.prototype.slice.call(document.querySelectorAll('.content-section'));
-      var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
-      var scheduled = false;
-      function updateCurrent() {
-        scheduled = false;
-        var current = sections[0].id;
-        sections.forEach(function (section) {
-          if (section.getBoundingClientRect().top <= 145) current = section.id;
-        });
-        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8) current = sections[sections.length - 1].id;
-        links.forEach(function (link) {
-          if (link.getAttribute('href') === '#' + current) link.setAttribute('aria-current', 'location');
-          else link.removeAttribute('aria-current');
-        });
-      }
-      function scheduleUpdate() {
-        if (!scheduled) { scheduled = true; window.requestAnimationFrame(updateCurrent); }
-      }
-      window.addEventListener('scroll', scheduleUpdate, { passive: true });
-      window.addEventListener('resize', scheduleUpdate);
-      window.addEventListener('hashchange', scheduleUpdate);
-      updateCurrent();
-    }());
-  </script>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar"><div class="topbar-inner">
+  <a class="brand" href="#home"><span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9M8 5.25l8 4.5"/></svg></span>见得空间<span class="brand-divider" aria-hidden="true"></span><span class="brand-caption">用户文档</span></a>
+  <div class="top-actions"><button type="button" class="copy-button" id="copy-link" title="复制当前文档链接"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg>复制链接</button><button type="button" class="print-button" id="print-page">打印全部</button><button type="button" class="menu-button" id="menu-toggle" aria-expanded="false" aria-controls="sidebar" aria-label="打开文档目录"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button></div>
+</div></header>
+<div class="layout">
+<aside class="sidebar" id="sidebar" aria-label="知识库目录"><div class="sidebar-header"><div class="search-wrap"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><label for="doc-search" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">搜索文档标题和正文</label><input id="doc-search" class="search-input" type="search" placeholder="搜索文档与正文" autocomplete="off"><span class="search-key" aria-hidden="true">⌘ K</span></div></div><div class="navigation-scroll"><a class="home-link" href="#home" id="home-link"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="m2 9 8-7 8 7M4 8v10h5v-6h3v6h4V8"/></svg>文档首页</a><div class="nav-tree" id="nav-tree"><p class="nav-heading">文档目录</p><details class="nav-group" open><summary>概述</summary><div class="nav-children"><a class="doc-link" data-doc="zmgcca1r6qvs7enc" href="#doc-zmgcca1r6qvs7enc"><span>平台架构</span></a><a class="doc-link" data-doc="zgo598cafz8v5cb9" href="#doc-zgo598cafz8v5cb9"><span>运行环境</span></a><a class="doc-link" data-doc="gm1n1ha8qd1s4mg2" href="#doc-gm1n1ha8qd1s4mg2"><span>自定义开发</span></a><a class="doc-link" data-doc="cpnf3z04qvqguwo2" href="#doc-cpnf3z04qvqguwo2"><span>会员服务</span></a></div></details><details class="nav-group" open><summary>视频教程</summary><div class="nav-children"><a class="doc-link" data-doc="pwh727vgi706tme2" href="#doc-pwh727vgi706tme2"><span>APP主页介绍</span></a><a class="doc-link" data-doc="zc00py2sngcdgm0a" href="#doc-zc00py2sngcdgm0a"><span>创建模型入门教程</span></a><a class="doc-link" data-doc="iqk0kwfpab49qefn" href="#doc-iqk0kwfpab49qefn"><span>创建AR入门教程</span></a><a class="doc-link" data-doc="aki8viyy2klbgdbo" href="#doc-aki8viyy2klbgdbo"><span>创建VR入门教程</span></a><a class="doc-link" data-doc="zdq1iem423gtty7o" href="#doc-zdq1iem423gtty7o"><span>创建素材入门教程</span></a></div></details><details class="nav-group" open><summary>快速开始</summary><div class="nav-children"><details class="nav-group" open><summary>快速了解“我的模型”</summary><div class="nav-children"><a class="doc-link" data-doc="dszt5ofnsetgd779" href="#doc-dszt5ofnsetgd779"><span>准备工作</span></a><a class="doc-link" data-doc="ath53ywyay4w20cu" href="#doc-ath53ywyay4w20cu"><span>创建物体</span></a><a class="doc-link" data-doc="kgesli4geky2dg42" href="#doc-kgesli4geky2dg42"><span>创建场景</span></a><a class="doc-link" data-doc="nr48agpelgw7y5wi" href="#doc-nr48agpelgw7y5wi"><span>模型浏览与编辑</span></a><a class="doc-link" data-doc="lwobeg7l0ms1d8gd" href="#doc-lwobeg7l0ms1d8gd"><span>平面AR体验</span></a><a class="doc-link" data-doc="vz1cpipbb9k20qgf" href="#doc-vz1cpipbb9k20qgf"><span>下载与分享</span></a><a class="doc-link" data-doc="ui7fhrw63d2kkrx0" href="#doc-ui7fhrw63d2kkrx0"><span>作品发布</span></a><a class="doc-link" data-doc="kkspyrtbr11rvkln" href="#doc-kkspyrtbr11rvkln"><span>3D打印教程</span></a></div></details><details class="nav-group"><summary>快速了解“我的AR”</summary><div class="nav-children"><details class="nav-group"><summary>创建2D标识图</summary><div class="nav-children"><a class="doc-link" data-doc="ar-2d-marker-spec" href="#doc-ar-2d-marker-spec"><span>2D标识图规范</span></a><a class="doc-link" data-doc="ar-new-2d-marker" href="#doc-ar-new-2d-marker"><span>新建2D标识图</span></a><a class="doc-link" data-doc="ar-editor" href="#doc-ar-editor"><span>AR编辑器</span></a><a class="doc-link" data-doc="ar-experience" href="#doc-ar-experience"><span>AR体验</span></a><a class="doc-link" data-doc="ar-save-share" href="#doc-ar-save-share"><span>保存与分享</span></a><a class="doc-link" data-doc="ar-publish" href="#doc-ar-publish"><span>作品发布</span></a></div></details><a class="doc-link" data-doc="ar-create-3d-marker" href="#doc-ar-create-3d-marker"><span>创建3D标识图</span></a><a class="doc-link" data-doc="ar-create-object" href="#doc-ar-create-object"><span>创建物体</span></a><a class="doc-link" data-doc="ar-create-scene" href="#doc-ar-create-scene"><span>创建场景</span></a></div></details><a class="doc-link" data-doc="quick-my-vr" href="#doc-quick-my-vr"><span>快速了解“我的VR”</span></a><details class="nav-group"><summary>快速了解“我的素材”</summary><div class="nav-children"><a class="doc-link" data-doc="my-assets-overview" href="#doc-my-assets-overview"><span>概述</span></a><a class="doc-link" data-doc="my-assets-categories" href="#doc-my-assets-categories"><span>分类</span></a></div></details><details class="nav-group"><summary>快速了解“公共素材”</summary><div class="nav-children"><a class="doc-link" data-doc="public-assets-overview" href="#doc-public-assets-overview"><span>概述</span></a><a class="doc-link" data-doc="public-assets-categories" href="#doc-public-assets-categories"><span>分类</span></a></div></details></div></details><details class="nav-group" open><summary>详细教程</summary><div class="nav-children"><a class="doc-link" data-doc="kzgddtsr514f95p4" href="#doc-kzgddtsr514f95p4"><span>“我的模型”详细教程</span></a><a class="doc-link" data-doc="nxyk3gtlemekta58" href="#doc-nxyk3gtlemekta58"><span>“我的AR”详细教程</span></a><a class="doc-link" data-doc="zxiizge5tvrfyv6s" href="#doc-zxiizge5tvrfyv6s"><span>“我的VR”详细教程</span></a><a class="doc-link" data-doc="brwe1sh5ec8ebuy1" href="#doc-brwe1sh5ec8ebuy1"><span>“我的素材”详细教程</span></a><a class="doc-link" data-doc="ydt73hgkzzr7l2a9" href="#doc-ydt73hgkzzr7l2a9"><span>“公共素材”详细教程</span></a></div></details><a class="doc-link" data-doc="gcgqamtc4n5ph8z6" href="#doc-gcgqamtc4n5ph8z6"><span>会员功能</span></a><details class="nav-group" open><summary>产品资讯</summary><div class="nav-children"><a class="doc-link" data-doc="ldx9mgbwtu9y01ee" href="#doc-ldx9mgbwtu9y01ee"><span>更新动态</span></a></div></details><a class="doc-link" data-doc="faq" href="#doc-faq"><span>常见问题FAQ</span></a><details class="nav-group" open><summary>联系我们</summary><div class="nav-children"><a class="doc-link" data-doc="khg6l5b699vgg3bc" href="#doc-khg6l5b699vgg3bc"><span>意见反馈</span></a><a class="doc-link" data-doc="tonm2emnigg4x8uf" href="#doc-tonm2emnigg4x8uf"><span>商务合作</span></a><a class="doc-link" data-doc="it121gbnx6qn8gra" href="#doc-it121gbnx6qn8gra"><span>联系客服</span></a></div></details><details class="nav-group" open><summary>WEB端用户文档</summary><div class="nav-children"><a class="doc-link" data-doc="fcou6gcsle7k2g0w" href="#doc-fcou6gcsle7k2g0w"><span>新建模型</span></a><a class="doc-link" data-doc="krgww5kx8k2z9twc" href="#doc-krgww5kx8k2z9twc"><span>导入模型</span></a></div></details></div><div class="search-results" id="search-results" hidden aria-live="polite"></div></div><div class="sidebar-footer">见得空间使用指南<br>通过目录与搜索查找教程</div></aside>
+<main class="main" id="main"><div class="global-note"><span>帮助中心 / 使用指南</span></div><div class="paper"><section class="overview" id="home"><p class="eyebrow">SEEGET SPACE · 用户文档</p><h1>见得空间使用指南</h1><p class="overview-intro">从拍摄准备到模型创建、AR 体验与作品分享，按步骤学习见得空间的基本操作，或按主题查找需要的教程。</p><section class="start-section" aria-labelledby="start-title"><h2 class="section-heading" id="start-title">第一次使用，从这里开始</h2><div class="start-grid"><a class="start-card" href="#doc-dszt5ofnsetgd779"><span class="step-number">01</span><h3>拍摄前的准备</h3><p>了解拍摄设备、采集对象与环境要求，为创建模型做好准备。</p><span class="start-link">查看准备工作<span aria-hidden="true"> →</span></span></a><a class="start-card" href="#doc-ath53ywyay4w20cu"><span class="step-number">02</span><h3>创建第一个模型</h3><p>了解新建任务、上传照片与模型生成的操作流程。</p><span class="start-link">学习创建物体<span aria-hidden="true"> →</span></span></a><a class="start-card" href="#doc-vz1cpipbb9k20qgf"><span class="step-number">03</span><h3>下载与分享作品</h3><p>下载模型文件，或通过链接与其他人分享你的作品。</p><span class="start-link">查看下载与分享<span aria-hidden="true"> →</span></span></a></div></section><p class="reading-tip">使用目录或搜索快速查找教程。手机浏览时，点击右上角菜单展开目录。</p><h2 class="section-heading">按主题查阅</h2><div class="overview-groups"><section><h2>概述</h2><div class="overview-links"><a href="#doc-zmgcca1r6qvs7enc">平台架构<small>内容准备中</small><span aria-hidden="true">↗</span></a><a href="#doc-zgo598cafz8v5cb9">运行环境<span aria-hidden="true">↗</span></a><a href="#doc-gm1n1ha8qd1s4mg2">自定义开发<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-cpnf3z04qvqguwo2">会员服务<small>敬请期待</small><span aria-hidden="true">↗</span></a></div></section><section><h2>视频教程</h2><div class="overview-links"><a href="#doc-pwh727vgi706tme2">APP主页介绍<small>内容准备中</small><span aria-hidden="true">↗</span></a><a href="#doc-zc00py2sngcdgm0a">创建模型入门教程<small>内容准备中</small><span aria-hidden="true">↗</span></a><a href="#doc-iqk0kwfpab49qefn">创建AR入门教程<small>内容准备中</small><span aria-hidden="true">↗</span></a><a href="#doc-aki8viyy2klbgdbo">创建VR入门教程<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-zdq1iem423gtty7o">创建素材入门教程<small>内容准备中</small><span aria-hidden="true">↗</span></a></div></section><section><h2>快速开始</h2><div class="overview-links"><a href="#doc-dszt5ofnsetgd779" title="快速了解“我的模型”：从“准备工作”开始">快速了解“我的模型”<span aria-hidden="true">↗</span></a><a href="#doc-ar-2d-marker-spec" title="快速了解“我的AR”：从“2D标识图规范”开始">快速了解“我的AR”<span aria-hidden="true">↗</span></a><a href="#doc-quick-my-vr">快速了解“我的VR”<small>暂无内容</small><span aria-hidden="true">↗</span></a><a href="#doc-my-assets-overview" title="快速了解“我的素材”：从“概述”开始">快速了解“我的素材”<span aria-hidden="true">↗</span></a><a href="#doc-public-assets-overview" title="快速了解“公共素材”：从“概述”开始">快速了解“公共素材”<span aria-hidden="true">↗</span></a></div></section><section><h2>详细教程</h2><div class="overview-links"><a href="#doc-kzgddtsr514f95p4">“我的模型”详细教程<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-nxyk3gtlemekta58">“我的AR”详细教程<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-zxiizge5tvrfyv6s">“我的VR”详细教程<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-brwe1sh5ec8ebuy1">“我的素材”详细教程<small>敬请期待</small><span aria-hidden="true">↗</span></a><a href="#doc-ydt73hgkzzr7l2a9">“公共素材”详细教程<small>敬请期待</small><span aria-hidden="true">↗</span></a></div></section><section><h2>会员功能</h2><div class="overview-links"><a href="#doc-gcgqamtc4n5ph8z6">查看详情<span aria-hidden="true">↗</span></a></div></section><section><h2>产品资讯</h2><div class="overview-links"><a href="#doc-ldx9mgbwtu9y01ee">更新动态<small>敬请期待</small><span aria-hidden="true">↗</span></a></div></section><section><h2>常见问题FAQ</h2><div class="overview-links"><a href="#doc-faq">暂无内容<span aria-hidden="true">↗</span></a></div></section><section><h2>联系我们</h2><div class="overview-links"><a href="#doc-khg6l5b699vgg3bc">意见反馈<span aria-hidden="true">↗</span></a><a href="#doc-tonm2emnigg4x8uf">商务合作<span aria-hidden="true">↗</span></a><a href="#doc-it121gbnx6qn8gra">联系客服<span aria-hidden="true">↗</span></a></div></section><section><h2>WEB端用户文档</h2><div class="overview-links"><a href="#doc-fcou6gcsle7k2g0w">新建模型<span aria-hidden="true">↗</span></a><a href="#doc-krgww5kx8k2z9twc">导入模型<span aria-hidden="true">↗</span></a></div></section></div></section>
+<article class="doc-page" id="doc-zmgcca1r6qvs7enc" data-slug="zmgcca1r6qvs7enc"><div class="breadcrumbs">概述</div><h1 tabindex="-1">平台架构</h1><div class="doc-body"><p>内容准备中，敬请期待。</p></div><nav class="neighbors" aria-label="相邻文档"><span></span><a href="#doc-zgo598cafz8v5cb9"><small>下一篇 →</small><span>运行环境</span></a></nav></article>
+<article class="doc-page" id="doc-zgo598cafz8v5cb9" data-slug="zgo598cafz8v5cb9"><div class="breadcrumbs">概述</div><h1 tabindex="-1">运行环境</h1><div class="doc-body"><p>目前支持在IOS手机端运行</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-zmgcca1r6qvs7enc"><small>← 上一篇</small><span>平台架构</span></a><a href="#doc-gm1n1ha8qd1s4mg2"><small>下一篇 →</small><span>自定义开发</span></a></nav></article>
+<article class="doc-page" id="doc-gm1n1ha8qd1s4mg2" data-slug="gm1n1ha8qd1s4mg2"><div class="breadcrumbs">概述</div><h1 tabindex="-1">自定义开发</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-zgo598cafz8v5cb9"><small>← 上一篇</small><span>运行环境</span></a><a href="#doc-cpnf3z04qvqguwo2"><small>下一篇 →</small><span>会员服务</span></a></nav></article>
+<article class="doc-page" id="doc-cpnf3z04qvqguwo2" data-slug="cpnf3z04qvqguwo2"><div class="breadcrumbs">概述</div><h1 tabindex="-1">会员服务</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-gm1n1ha8qd1s4mg2"><small>← 上一篇</small><span>自定义开发</span></a><a href="#doc-pwh727vgi706tme2"><small>下一篇 →</small><span>APP主页介绍</span></a></nav></article>
+<article class="doc-page" id="doc-pwh727vgi706tme2" data-slug="pwh727vgi706tme2"><div class="breadcrumbs">视频教程</div><h1 tabindex="-1">APP主页介绍</h1><div class="doc-body"><p>内容准备中，敬请期待。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-cpnf3z04qvqguwo2"><small>← 上一篇</small><span>会员服务</span></a><a href="#doc-zc00py2sngcdgm0a"><small>下一篇 →</small><span>创建模型入门教程</span></a></nav></article>
+<article class="doc-page" id="doc-zc00py2sngcdgm0a" data-slug="zc00py2sngcdgm0a"><div class="breadcrumbs">视频教程</div><h1 tabindex="-1">创建模型入门教程</h1><div class="doc-body"><p>内容准备中，敬请期待。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-pwh727vgi706tme2"><small>← 上一篇</small><span>APP主页介绍</span></a><a href="#doc-iqk0kwfpab49qefn"><small>下一篇 →</small><span>创建AR入门教程</span></a></nav></article>
+<article class="doc-page" id="doc-iqk0kwfpab49qefn" data-slug="iqk0kwfpab49qefn"><div class="breadcrumbs">视频教程</div><h1 tabindex="-1">创建AR入门教程</h1><div class="doc-body"><p>内容准备中，敬请期待。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-zc00py2sngcdgm0a"><small>← 上一篇</small><span>创建模型入门教程</span></a><a href="#doc-aki8viyy2klbgdbo"><small>下一篇 →</small><span>创建VR入门教程</span></a></nav></article>
+<article class="doc-page" id="doc-aki8viyy2klbgdbo" data-slug="aki8viyy2klbgdbo"><div class="breadcrumbs">视频教程</div><h1 tabindex="-1">创建VR入门教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-iqk0kwfpab49qefn"><small>← 上一篇</small><span>创建AR入门教程</span></a><a href="#doc-zdq1iem423gtty7o"><small>下一篇 →</small><span>创建素材入门教程</span></a></nav></article>
+<article class="doc-page" id="doc-zdq1iem423gtty7o" data-slug="zdq1iem423gtty7o"><div class="breadcrumbs">视频教程</div><h1 tabindex="-1">创建素材入门教程</h1><div class="doc-body"><p>内容准备中，敬请期待。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-aki8viyy2klbgdbo"><small>← 上一篇</small><span>创建VR入门教程</span></a><a href="#doc-dszt5ofnsetgd779"><small>下一篇 →</small><span>准备工作</span></a></nav></article>
+<article class="doc-page" id="doc-dszt5ofnsetgd779" data-slug="dszt5ofnsetgd779"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">准备工作</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#equipment">1. 拍照设备选择</a><a href="#subject">2. 采集对象选择</a><a href="#shooting">3. 拍摄方式</a><a href="#environment">4. 周围环境</a><a href="#quality">5. 成像质量</a></details><div class="doc-body"><p>将一组数据还原成三维模型，最终的效果受到物体本身、拍摄方式、环境等因素影响，我们的建议如下：</p>
+<h2 id="equipment">1. 拍照设备选择</h2>
+<ul>
+<li><p><strong>手机：</strong> 使用手机拍照或从相册导入照片/视频进行建模。</p></li>
+<li><p><strong>连接第三方相机：</strong> 目前支持Pilot Go、Insta 360两种设备连接拍照，这些设备都可以用于拍摄建模所需的数据，但需要注意它们的镜头质量和分辨率。</p></li>
+<li><p><strong>避免使用鱼眼或360°运动相机：</strong> 这类设备通常会产生较大的畸变，这会在后期处理中引入不必要的复杂性。</p></li>
+</ul>
+<h2 id="subject">2. 采集对象选择</h2>
+<p>应尽量选择特征点明显、纹理丰富的静止物体，以下物体不适合建模或者建模效果不佳：</p>
+<ul>
+<li><p><strong>特征点明显、纹理丰富的静止物体：</strong> 这些特征对于三维建模软件中的图像匹配和纹理映射非常重要。如：运动中的玩具；</p></li>
+<li><p><strong>避免移动的物体：</strong> 因为建模软件需要对比不同照片中的相同点，移动的物体会导致匹配失败。如：运动中的玩具；</p></li>
+<li><p><strong>透明或半透明物体：</strong> 这些物体会导致光线折射，影响照片的质量和纹理的捕捉。如：玻璃杯、矿泉水；</p></li>
+<li><p><strong>反光和自反光的物体：</strong> 高光区域会掩盖物体的纹理信息，使得建模变得困难。如：镜子；</p></li>
+<li><p><strong>大面积纯色的物体：</strong> 缺乏纹理和颜色变化会导致建模软件难以区分不同的区域。如：白墙、纯黑T恤；</p></li>
+<li><p><strong>纹理重复或对称的物体：</strong> 这类物体会导致建模软件在匹配特征点时产生混淆。如：栏杆。</p></li>
+</ul>
+<h2 id="shooting">3. 拍摄方式</h2>
+<p>重叠度是保证三维模型完整度的重要指标，重叠度是指相邻照片之间所摄内容的重叠程度，无论您在采集何种形状的物体都需要保证相邻照片的重叠度不低于 60%；</p>
+<ul>
+<li><p><strong>柱状物体：</strong> 围绕物体进行拍摄时，建议每隔一定的角度（如15度或20度）拍摄一张照片，以确保足够的重叠度。</p></li>
+<li><p><strong>平面物体：</strong> 从左到右、从上到下逐层拍摄时，同样要确保每张照片之间的重叠度足够高。对于大型平面物体，建议使用三脚架和遥控器来确保稳定性和拍摄的一致性。</p></li>
+</ul>
+<h2 id="environment">4. 周围环境</h2>
+<p>在进行三维模型数据采集时，周围环境的选择和设置对最终效果有着重要影响。以下是一些关于周围环境的建议：</p>
+<ul>
+<li><p><strong>光线条件：</strong> 在较明亮的地方进行采集，这有助于确保照片清晰度和细节。如果环境光线不足，可以考虑使用灯箱或补光灯来增强光线。确保光线均匀分布，避免强烈的光影对比和阴影。</p></li>
+<li><p><strong>物件位置稳定性：</strong> 物件放置后，在拍摄过程中不要改变其与环境的相对位置。这样可以确保每张照片中物件的位置和角度一致，有助于建模软件在匹配特征点时更加准确。</p></li>
+<li><p><strong>背景选择：</strong> 尽量挑选背景单一的拍摄环境，避免在杂乱的环境下拍摄。单一背景有助于减少建模软件在识别特征点时的干扰，提高建模的精度和效率。</p></li>
+</ul>
+<h2 id="quality">5. 成像质量</h2>
+<p>成像质量是影响三维模型质量的关键因素之一。以下是一些关于成像质量的建议：</p>
+<ul>
+<li><p><strong>照片清晰度：</strong> 确保照片清晰，避免出现模糊、失焦等情况。使用高质量的相机和镜头，以及合适的拍摄参数，可以获得更清晰的照片。</p></li>
+<li><p><strong>曝光控制：</strong> 避免照片过曝或是过暗。过曝的照片会导致高亮区域失去细节，而过暗的照片则会影响整体画面的清晰度。合理设置曝光值，确保照片中的细节得以保留。</p></li>
+<li><p><strong>照片检查与补拍：</strong> 在上传照片之前，对照片进行检查，删除不合格的照片。不合格的照片包括模糊、失焦、过曝、过暗等。如果发现有缺失或不合格的照片，必要时进行重新补拍，以确保数据的完整性和准确性。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-zdq1iem423gtty7o"><small>← 上一篇</small><span>创建素材入门教程</span></a><a href="#doc-ath53ywyay4w20cu"><small>下一篇 →</small><span>创建物体</span></a></nav></article>
+<article class="doc-page" id="doc-ath53ywyay4w20cu" data-slug="ath53ywyay4w20cu"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">创建物体</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ath53ywyay4w20cu-h1">1. 下载见得空间APP</a><a href="#ath53ywyay4w20cu-h2">2. 进入工作台</a><a href="#ath53ywyay4w20cu-h3">3. 创建模型任务</a><a href="#ath53ywyay4w20cu-h4">4. 选择建模类型与建模时间</a><a href="#ath53ywyay4w20cu-h5">5. 启动建模</a><a href="#ath53ywyay4w20cu-h6">6. 等待建模完成</a><a href="#ath53ywyay4w20cu-h7">7. 查看模型</a></details><div class="doc-body"><p>为了通过见得空间平台创建并构建三维模型，你可以按照以下步骤进行操作：</p>
+<h2 id="ath53ywyay4w20cu-h1">1. 下载见得空间APP</h2>
+<ul>
+<li><p>使用iPhone手机，通过官方链接或搜索名称下载见得空间APP。</p></li>
+<li><p><a href="https://itunes.apple.com/cn/app/id6478824436?mt=8" target="_blank" rel="noopener noreferrer">https://itunes.apple.com/cn/app/id6478824436?mt=8</a></p></li>
+<li><p>安装并打开APP后，按照提示进行注册并登录您的见得空间账号。</p></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h2">2. 进入工作台</h2>
+<ul>
+<li><p>在APP底部导航栏找到并点击【工作台】功能。</p></li>
+<li><p>你也可以直接点击APP界面中间的“+”号来直接创建模型任务。</p></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h3">3. 创建模型任务</h2>
+<ul>
+<li><p>在顶部操作栏中，点击【+】按钮开始创建新的模型任务。</p></li>
+<li><p>在弹出的选项中选择【物体】，然后选择新建类型：</p>
+<ul>
+<li><p>半球引导采集：适用于需要全方位捕捉的模型。</p></li>
+<li><p>图像漂浮采集：适用于动态或不稳定环境，如无人机航拍。</p></li>
+<li><p>常规采集：适用于常规拍摄模型。</p></li>
+<li><p>从相册导入：适用于已有数据的情况。</p></li>
+</ul></li>
+<li><p>选择创建方式后，填写模型的名称、描述等相关信息，然后点击【保存】以保存设置</p></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h4">4. 选择建模类型与建模时间</h2>
+<ul>
+<li><p>在新建任务页面中，根据实际需要选择建模类型</p>
+<ul>
+<li><p>摄影测量模型：这是一种基于摄影技术获取空间对象的几何位置、形状和尺寸等信息的测量方法。</p></li>
+<li><p>3DGS模型：使用数百万个3D高斯来明确表示场景，并凭借可微分的渲染算法保证了实时渲染能力。</p></li>
+<li><p>NeuS模型：NeRF及其变体主要使用隐式的基于坐标的模型将空间坐标映射到像素值，来捕捉场景的3D几何结构</p></li>
+</ul></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h5">5. 启动建模</h2>
+<ul>
+<li><p>在保存所有设置后，选择【建模】选项来启动建模过程。</p></li>
+<li><p>根据所选的创建方式，上传对应的照片数据。如果是半球引导采集、图像漂浮采集或常规采集，请按照APP的指引进行拍摄并上传照片；如果是从相册导入，请选择并上传已有的照片。</p></li>
+<li><p>上传完成后，等待系统自动进行三维模型构建的计算过程。</p></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h6">6. 等待建模完成</h2>
+<ul>
+<li><p>建模过程可能需要一段时间，具体时间取决于照片数量、质量以及服务器的负载情况。</p></li>
+<li><p>在等待期间，你可以继续创建其他任务或处理其他事情。</p></li>
+<li><p>一旦建模完成，任务列表中将显示“建模成功”的状态。</p></li>
+</ul>
+<h2 id="ath53ywyay4w20cu-h7">7. 查看模型</h2>
+<ul>
+<li><p>返回到【工作台-我的模型】页面，在列表中找到你刚刚构建的模型。</p></li>
+<li><p>点击对应模型，你将能够在线浏览三维模型的效果，包括旋转、缩放等操作，以便更全面地查看模型的细节。</p></li>
+</ul>
+<p>⚠️ 注意</p>
+<p>（1） 物件模型仅支持JPG格式的照片；（2） 物件建模单个任务数量限制为10-400张，并不是数量越多效果越好，关键是保证同一个位置被多张照片拍摄到；（3） 在上传过程中请勿关闭页面或浏览器，否则数据将无法上传。如果发生该情况，可以再次选择同一组照片，系统会自动过滤已上传的数据。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-dszt5ofnsetgd779"><small>← 上一篇</small><span>准备工作</span></a><a href="#doc-kgesli4geky2dg42"><small>下一篇 →</small><span>创建场景</span></a></nav></article>
+<article class="doc-page" id="doc-kgesli4geky2dg42" data-slug="kgesli4geky2dg42"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">创建场景</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ath53ywyay4w20cu"><small>← 上一篇</small><span>创建物体</span></a><a href="#doc-nr48agpelgw7y5wi"><small>下一篇 →</small><span>模型浏览与编辑</span></a></nav></article>
+<article class="doc-page" id="doc-nr48agpelgw7y5wi" data-slug="nr48agpelgw7y5wi"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">模型浏览与编辑</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#nr48agpelgw7y5wi-h1">1.编辑功能</a><a href="#nr48agpelgw7y5wi-h2">2.全局设置</a><a href="#nr48agpelgw7y5wi-h3">3.视图设置</a></details><div class="doc-body"><p>处理完成后，可以在线浏览并对模型进行编辑模型编辑主要有以下功能：</p>
+<h2 id="nr48agpelgw7y5wi-h1">1.编辑功能</h2>
+<ul>
+<li><p>变换设置：包括旋转功能、平移功能、缩放功能等基础设置。</p></li>
+<li><p>校正设置：通过绘制矩形框、指定半径的圆或涂抹来选择对象进行校正</p></li>
+<li><p>整体裁剪：包括立方体裁剪、圆柱体裁剪、球体裁剪、平面裁剪。</p></li>
+<li><p>精细化裁剪：在复杂的模型中，允许用户选择特定的点、面或连通体进行裁剪。</p></li>
+</ul>
+<h2 id="nr48agpelgw7y5wi-h2">2.全局设置</h2>
+<ul>
+<li><p>背景设置：添加纯色、图片、天空盒（通常用于3D渲染）来创建逼真的环境。</p></li>
+<li><p>背景音乐：允许用户添加、选择、播放和循环背景音乐。</p></li>
+<li><p>视频制作：通过创建视图轨迹生成视频，允许用户将编辑的结果保存到相册。</p></li>
+<li><p>入场动画：设置模型进入场景时的动画效果。</p></li>
+<li><p>地面设置：包括地面和网格，选择不同类型的地面效果。</p></li>
+<li><p>环境光设置：调整环境光的强度，以改变场景的整体照明。</p></li>
+<li><p>后期处理：应用各种后期处理效果，如色彩映射、锐化、炫光等，以改善或改变模型展示的效果。</p></li>
+<li><p>热点设置：包括文本热点、图片热点、视频热点以及列表功能，在场景中添加可点击的文本链接或信息提示。</p></li>
+<li><p>测量设置：提供工具来测量对象或场景中的距离、面积或体积。</p></li>
+</ul>
+<h2 id="nr48agpelgw7y5wi-h3">3.视图设置</h2>
+<ul>
+<li><p>观看范围：在模型浏览时可以查看的模型或场景的边界或区域</p></li>
+<li><p>视角控制：在模型浏览时能够如何查看模型或场景的能力，包括旋转、平移、缩放等。</p></li>
+<li><p>透视/正交：支持模拟了人眼观察世界的方式，提供更真实和自然的视觉体验。也支持基于平行的直线和等距线条浏览模型。</p></li>
+<li><p>视图显示：在模型浏览时可以设置不同的视图模式等。</p></li>
+</ul>
+<p>⚠️ 注意</p>
+<p>材质设置功能适合用于C4D、3DMax等建模软件输出的手工模型。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-kgesli4geky2dg42"><small>← 上一篇</small><span>创建场景</span></a><a href="#doc-lwobeg7l0ms1d8gd"><small>下一篇 →</small><span>平面AR体验</span></a></nav></article>
+<article class="doc-page" id="doc-lwobeg7l0ms1d8gd" data-slug="lwobeg7l0ms1d8gd"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">平面AR体验</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#lwobeg7l0ms1d8gd-h1">1. 进入AR体验</a><a href="#lwobeg7l0ms1d8gd-h2">2. 模型展示</a><a href="#lwobeg7l0ms1d8gd-h3">3. 交互操作</a></details><div class="doc-body"><p>平面AR体验是一种将虚拟模型与现实世界平面结合的技术，使用户能够在真实环境中直观地感知和理解3D模型。以下是平面AR体验的详细流程：</p>
+<h2 id="lwobeg7l0ms1d8gd-h1">1. 进入AR体验</h2>
+<ul>
+<li><p>浏览模型页面：首先，用户需要进入浏览页面页面。浏览对应的模型。</p></li>
+<li><p>点击【AR体验】：在模型浏览页面上，用户需要点击【AR体验】按钮，以启动平面AR体验功能</p></li>
+</ul>
+<h2 id="lwobeg7l0ms1d8gd-h2">2. 模型展示</h2>
+<ul>
+<li><p>识别平面：启动AR体验后，应用会提示用户选择一个平面来放置虚拟模型。这通常是通过移动手机来扫描并识别周围的平面，如桌面、地板等。</p></li>
+<li><p>放置模型：一旦平面被成功识别，用户就可以将虚拟模型放置在该平面上。模型会自动根据平面的大小和角度进行适应和校准。</p></li>
+<li><p>观察模型：放置完成后，用户可以在现实世界的平面上看到叠加的虚拟模型。这些模型会以逼真的方式展示在平面上，用户可以直观地理解和感知产品的外观和结构。</p></li>
+</ul>
+<h2 id="lwobeg7l0ms1d8gd-h3">3. 交互操作</h2>
+<ul>
+<li><p>旋转模型：在平面AR体验中，用户可以通过触摸屏幕或手势来控制模型的旋转。通过旋转模型，用户可以从不同角度观察模型的细节和特性。</p></li>
+<li><p>缩放模型：除了旋转外，用户还可以对模型进行缩放操作。通过放大或缩小模型，用户可以更详细地查看模型的特定部分或获得更全面的视角。</p></li>
+<li><p>移动模型：在平面AR体验中，用户还可以将模型移动到不同的位置。这使用户能够在不同的平面上展示模型，或者与其他物体进行交互和比较。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-nr48agpelgw7y5wi"><small>← 上一篇</small><span>模型浏览与编辑</span></a><a href="#doc-vz1cpipbb9k20qgf"><small>下一篇 →</small><span>下载与分享</span></a></nav></article>
+<article class="doc-page" id="doc-vz1cpipbb9k20qgf" data-slug="vz1cpipbb9k20qgf"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">下载与分享</h1><div class="doc-body"><p>对于建模成功的模型，点击右上方的【下载】，获得 OBJ 格式的三维模型文件，可以导入 3DMax 等建模软件中对模型进行后处理。</p>
+<p>点击右上方的【分享】生成链接，通过复制链接、代码、图片等多种方式让其他人可以随时随地浏览你的作品。</p>
+<p>⚠️ 注意</p>
+<p>（1） 分享功能提供有效期、密码保护、用户水印等功能保证你的数据安全；（2） 对于分享的链接可以随时进行收回，收回后该链接将无法访问。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-lwobeg7l0ms1d8gd"><small>← 上一篇</small><span>平面AR体验</span></a><a href="#doc-ui7fhrw63d2kkrx0"><small>下一篇 →</small><span>作品发布</span></a></nav></article>
+<article class="doc-page" id="doc-ui7fhrw63d2kkrx0" data-slug="ui7fhrw63d2kkrx0"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">作品发布</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ui7fhrw63d2kkrx0-h1">1. 点击发布功能</a><a href="#ui7fhrw63d2kkrx0-h2">2. 选择图片/视频上传</a><a href="#ui7fhrw63d2kkrx0-h3">3. 设置封面</a><a href="#ui7fhrw63d2kkrx0-h4">4. 添加配乐和特效（可选）</a><a href="#ui7fhrw63d2kkrx0-h5">5. 输入标题和描述</a><a href="#ui7fhrw63d2kkrx0-h6">6. 设置权限和发布</a></details><div class="doc-body"><p>将模型设置封面并发布到发现广场的流程可以分为以下几个步骤：</p>
+<h2 id="ui7fhrw63d2kkrx0-h1">1. 点击发布功能</h2>
+<ul>
+<li><p>对于建模成功的模型，点击右上方的【发布】按钮</p></li>
+</ul>
+<h2 id="ui7fhrw63d2kkrx0-h2">2. 选择图片/视频上传</h2>
+<ul>
+<li><p>找到【+】按钮：在发布信息页面，点击【+】图标。</p></li>
+<li><p>选择添加方式：目前只支持选择一个视频，图片最多可以选择9张，</p>
+<ul>
+<li><p>从原始数据选择：选择采集的图片/视频作为封面和展示内容。</p></li>
+<li><p>拍摄图片/视频：允许用户直接通过设备的摄像头拍摄新的图片或视频。</p></li>
+<li><p>从相册中导入：允许用户从设备的相册或照片库中导入图片。</p></li>
+</ul></li>
+</ul>
+<h2 id="ui7fhrw63d2kkrx0-h3">3. 设置封面</h2>
+<ul>
+<li><p>默认第一个文件为封面，也可以通过左右滑动更改封面。</p></li>
+</ul>
+<h2 id="ui7fhrw63d2kkrx0-h4">4. 添加配乐和特效（可选）</h2>
+<ul>
+<li><p>在图片或视频上，可以添加配乐、滤镜、贴纸、转场等特效。</p></li>
+<li><p>这些功能可以增强图片/视频的表现力和吸引力。</p></li>
+</ul>
+<h2 id="ui7fhrw63d2kkrx0-h5">5. 输入标题和描述</h2>
+<ul>
+<li><p>在发布前，可以为图片或视频输入一个吸引人的标题和简短的描述。</p></li>
+<li><p>这有助于增加作品的曝光率和吸引力。</p></li>
+</ul>
+<h2 id="ui7fhrw63d2kkrx0-h6">6. 设置权限和发布</h2>
+<ul>
+<li><p>根据需要，可以设置图片/视频的可见范围（如公开、仅好友可见等）。</p></li>
+<li><p>最后，点击“发布”按钮，将模型上传到抖音平台。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-vz1cpipbb9k20qgf"><small>← 上一篇</small><span>下载与分享</span></a><a href="#doc-kkspyrtbr11rvkln"><small>下一篇 →</small><span>3D打印教程</span></a></nav></article>
+<article class="doc-page" id="doc-kkspyrtbr11rvkln" data-slug="kkspyrtbr11rvkln"><div class="breadcrumbs">快速开始 / 快速了解“我的模型”</div><h1 tabindex="-1">3D打印教程</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#kkspyrtbr11rvkln-h1">第一步：三维建模（数据采集）</a><a href="#kkspyrtbr11rvkln-h2">第二步：模型编辑与导出</a><a href="#kkspyrtbr11rvkln-h3">第三步：参数确认与切片设置</a><a href="#kkspyrtbr11rvkln-h4">第四步：3D打印生产</a><a href="#kkspyrtbr11rvkln-h5">第五步：后处理与成品交付</a></details><div class="doc-body"><p>本教程将指导您如何利用手机APP采集数据，并通过3D打印技术完美复刻现实生活中的物体。该流程特别适用于艺术品、手办或具有纪念意义的实物数字化。</p>
+<h2 id="kkspyrtbr11rvkln-h1">第一步：三维建模（数据采集）</h2>
+<ul>
+<li><p>准备环境：将目标物体（如雕像、摆件）放置在光线充足、背景相对简单的位置。</p></li>
+<li><p>手机拍摄：打开“见得3D”建模APP。</p></li>
+<li><p>拍摄技巧：围绕物体分上、中、下三个不同高度各环绕拍摄一圈。</p></li>
+<li><p>重叠度要求：确保相邻照片之间的重叠区域在60%-80% 之间。</p></li>
+<li><p>稳定性：保持手机平稳，避免画面模糊，以保证生成的模型细节清晰。</p></li>
+</ul>
+<h2 id="kkspyrtbr11rvkln-h2">第二步：模型编辑与导出</h2>
+<p>模型初步生成后，需要进行简单的“精修”以达到打印标准。</p>
+<ul>
+<li><p>裁剪模型：在APP内常规裁剪工具，剔除拍摄时带入的桌面、背景等无关元素。</p></li>
+<li><p>修复补面：检查模型表面。若存在由于光线或遮挡导致的空洞，需使用“补面”功能进行修复，确保模型是一个完整封闭的实体。</p></li>
+<li><p>导出发送：确认效果无误后，将模型文件打包压缩，发送至3D打印服务后台或客服人员。</p></li>
+</ul>
+<h2 id="kkspyrtbr11rvkln-h3">第三步：参数确认与切片设置</h2>
+<p>在正式打印前，技术人员会进行专业的软件预处理。</p>
+<ul>
+<li><p>需求确认：告知客服您所需的最终尺寸、打印材质（如树脂、PLA等）以及颜色要求。</p></li>
+<li><p>专业切片：技术人员会将模型导入专业软件（ Magics）。</p></li>
+<li><p>调整姿态：优化模型摆放位置以减少支撑。</p></li>
+<li><p>添加支撑：为悬空部位增加必要的支撑结构，防止打印过程中坍塌。</p></li>
+<li><p>效果预览：您可以查看最终的预览效果图，确认无误后即可排单生产。</p></li>
+</ul>
+<h2 id="kkspyrtbr11rvkln-h4">第四步：3D打印生产</h2>
+<p>进入实际生产环节，此过程由专业的3D打印设备完成。</p>
+<ul>
+<li><p>启动设备：确认模型路径后，启动3D打印机（FDM 或 SLA 设备）。</p></li>
+<li><p>逐层堆叠：打印头（或激光/投影）将按照切片指令，将材料层层堆叠，从底座开始逐渐生长出物体的形状。</p></li>
+<li><p>进度监控：系统会实时监控打印状态，确保成型精度。</p></li>
+</ul>
+<h2 id="kkspyrtbr11rvkln-h5">第五步：后处理与成品交付</h2>
+<ul>
+<li><p>去除支撑：打印完成后，需要人工小心去除多余的支撑材料。</p></li>
+<li><p>清洗打磨：根据材质要求进行清洗（如树脂件需酒精清洗）和表面打磨。</p></li>
+<li><p>最终成品：您将得到一个与原物高度还原的缩小版或同比例复刻品。</p></li>
+</ul>
+<p>温馨提示：拍摄时的光线越均匀，生成的模型纹理就越真实。对于表面反光严重（如玻璃、不锈钢）的物体，建议先喷涂显影剂再进行拍摄。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ui7fhrw63d2kkrx0"><small>← 上一篇</small><span>作品发布</span></a><a href="#doc-ar-2d-marker-spec"><small>下一篇 →</small><span>2D标识图规范</span></a></nav></article>
+<article class="doc-page" id="doc-ar-2d-marker-spec" data-slug="ar-2d-marker-spec"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">2D标识图规范</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ar-2d-marker-spec-h1">1.2D标识图概述</a><a href="#ar-2d-marker-spec-h2">2. 2D标识图格式</a><a href="#ar-2d-marker-spec-h3">3. 2D标识图内容</a><a href="#ar-2d-marker-spec-h4">4. 提升识别率的技巧</a><a href="#ar-2d-marker-spec-h5">5. 拍摄与处理</a><a href="#ar-2d-marker-spec-h6">6. 图片分辨率与压缩</a></details><div class="doc-body"><h2 id="ar-2d-marker-spec-h1">1.2D标识图概述</h2>
+<p>2D标识图是指在增强现实（Augmented Reality，简称AR）技术中，用于触发或激活AR体验的特定图像或图案。这些图片通过AR应用程序或设备（如智能手机、AR眼镜等）的摄像头进行扫描和识别，进而在真实环境中叠加虚拟内容，为用户提供沉浸式的增强现实体验。</p>
+<h2 id="ar-2d-marker-spec-h2">2. 2D标识图格式</h2>
+<ul>
+<li><p>支持的图片格式通常为<strong>JPG</strong>或<strong>PNG</strong>。JPG文件应确保是RGB无灰度，避免使用带有Alpha通道的32位图片。</p></li>
+</ul>
+<h2 id="ar-2d-marker-spec-h3">3. 2D标识图内容</h2>
+<ul>
+<li><p><strong>图案丰富</strong>：图片中的图案应尽可能丰富，避免使用过多的文字（因为文字容易与背景冲突）。</p></li>
+<li><p><strong>避免镜面反射和高光</strong>：识别区域应避免有镜面反射和高光，这些都会影响识别效果。</p></li>
+<li><p><strong>避免重复元素</strong>：图片中应避免有大量的重复元素，因为这可能会干扰识别算法。</p></li>
+</ul>
+<h2 id="ar-2d-marker-spec-h4">4. 提升识别率的技巧</h2>
+<ul>
+<li><p><strong>纹理分布</strong>：让纹理丰富的区域尽量分布在图片中心，这有助于提高识别率。</p></li>
+<li><p><strong>留白</strong>：根据实际情况，可以在图片的四周或两边留白，这也有助于提升识别效果。</p></li>
+</ul>
+<h2 id="ar-2d-marker-spec-h5">5. 拍摄与处理</h2>
+<ul>
+<li><p><strong>拍摄环境</strong>：应在光线充足、无遮挡的环境下拍摄识别图片，避免极端天气条件。</p></li>
+<li><p><strong>图片处理</strong>：拍摄后的图片可能需要进行一些处理，如透视变换、裁剪等，以去除不必要的干扰并突出识别区域。</p></li>
+</ul>
+<h2 id="ar-2d-marker-spec-h6">6. 图片分辨率与压缩</h2>
+<ul>
+<li><p><strong>分辨率</strong>：虽然提高分辨率不会直接提高识别性能，但图片的分辨率至少应为<strong>300x300像素</strong>以确保足够的清晰度。</p></li>
+<li><p><strong>避免过度压缩</strong>：对于JPEG文件，应避免过度压缩以保留足够的图像细节。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-kkspyrtbr11rvkln"><small>← 上一篇</small><span>3D打印教程</span></a><a href="#doc-ar-new-2d-marker"><small>下一篇 →</small><span>新建2D标识图</span></a></nav></article>
+<article class="doc-page" id="doc-ar-new-2d-marker" data-slug="ar-new-2d-marker"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">新建2D标识图</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ar-new-2d-marker-h1">1. 进入工作台</a><a href="#ar-new-2d-marker-h2">2. 新建2D标识图</a></details><div class="doc-body"><h2 id="ar-new-2d-marker-h1">1. 进入工作台</h2>
+<ul>
+<li><p>在APP底部导航栏找到并点击【工作台】功能，将左上角的【我的模型】按钮切换为【我的AR】，点击</p></li>
+<li><p>你也可以直接点击APP界面中间的“+”号来直接创建模型任务。</p></li>
+</ul>
+<h2 id="ar-new-2d-marker-h2">2. 新建2D标识图</h2>
+<ul>
+<li><p>在顶部操作栏中，点击【+】按钮开始新建2D标识图。</p></li>
+<li><p>在弹出的选项中选择【2D标识图】，然后选择新建类型：</p>
+<ul>
+<li><p><strong>拍摄：</strong>适用于需要即时捕捉或自定义的2D标识图。</p></li>
+<li><p><strong>从手机相册选择：</strong>适用于已经存在于手机相册中的图片。</p></li>
+<li><p><strong>从素材库选择：</strong>适用于APP提供的预设或已保存图片。</p></li>
+</ul></li>
+<li><p>选择创建方式后，填写2D标识图的名称、描述等相关信息，然后点击【保存】以保存设置。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-2d-marker-spec"><small>← 上一篇</small><span>2D标识图规范</span></a><a href="#doc-ar-editor"><small>下一篇 →</small><span>AR编辑器</span></a></nav></article>
+<article class="doc-page" id="doc-ar-editor" data-slug="ar-editor"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">AR编辑器</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ar-editor-h1">1.添加素材功能</a><a href="#ar-editor-h2">2.全局设置</a><a href="#ar-editor-h3">3.视图设置</a></details><div class="doc-body"><p>新建2D标识图完成后，可以在线编辑并AR体验主要有以下功能：</p>
+<h2 id="ar-editor-h1">1.添加素材功能</h2>
+<ul>
+<li><p><strong>图片：</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、拍照导入、相册导入</p></li>
+<li><p><strong>支持的图片格式</strong>：JPEG、PNG</p></li>
+</ul></li>
+<li><p><strong>视频：</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、拍照导入、相册导入</p></li>
+<li><p><strong>支持的视频格式：</strong>MP4</p></li>
+</ul></li>
+<li><p><strong>模型：</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择</p></li>
+<li><p><strong>支持的模型格式：</strong>Obj、Fbx、JITF、las、blender</p></li>
+</ul></li>
+<li><p><strong>特殊几何体：</strong></p>
+<ul>
+<li><p><strong>来源与添加方式</strong>：从公共素材选择</p></li>
+<li><p><strong>包括类型：</strong>形状、文本、外框、箭头、图标</p></li>
+</ul></li>
+<li><p><strong>灯光：</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>新建灯光</p></li>
+<li><p><strong>聚光灯：</strong>投射出来的灯光可以影响光束内的物体，并产生阴影和特殊效果。</p></li>
+<li><p><strong>点光源：</strong>点光源是一种理想化的质点点光源，类似于人造灯泡，具有向四周均匀发射光线的特性。</p></li>
+<li><p><strong>平行光：</strong>平行光是模拟太阳光等来自远方的光源，光线几乎是平行的，照射到物体上形成明显的阴影。</p></li>
+</ul></li>
+<li><p><strong>灯光组预设：</strong></p>
+<ul>
+<li><p><strong>概述：</strong>指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。</p></li>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、新建灯光组预设</p></li>
+</ul></li>
+</ul>
+<h2 id="ar-editor-h2">2.全局设置</h2>
+<ul>
+<li><p><strong>1. 背景设置</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、从相册导入、从拍照导入</p></li>
+<li><p><strong>包括类型：</strong>颜色、图片、天空哥</p></li>
+</ul></li>
+<li><p><strong>2. 背景音乐</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、手机录音</p></li>
+<li><p><strong>基本功能：</strong>添加背景音乐，设置音量、删除背景音乐</p></li>
+</ul></li>
+<li><p><strong>3. 视频制作</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、新建</p></li>
+<li><p><strong>操作细节：</strong></p></li>
+</ul></li>
+</ul>
+<p>创建关键帧制作视频：选择合适的视角来截取动画所需的场景或模型的不同角度，根据需要，可以调整视角的位置、大小和方向，确保能够捕捉到所需的动画细节。在创建完关键帧后，可以预览视频查看效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。</p>
+<p>手动录制视频：在【视频制作】设置中找到【手动录制】功能，并点击开始录制按钮。此时，你可以通过手指在屏幕上操作来控制视角的移动和变化。在录制过程中，你可以随时通过手指调整视角，并观察模型或场景在视角变化下的效果。当录制完成后，找到录制控制界面中的停止录制按钮，并点击结束录制。</p>
+<ul>
+<li><p><strong>4. 入场动画</strong></p>
+<ul>
+<li><p><strong>来源与添加方式：</strong>从公共素材选择、从个人素材选择、从视频制作导入</p></li>
+<li><p><strong>操作细节：</strong></p></li>
+<li><p>选择预设的入场动画模板。</p></li>
+<li><p>自定义动画效果，如淡入、缩放、旋转等。</p></li>
+<li><p>设置动画的速度和持续时间。</p></li>
+</ul></li>
+<li><p><strong>5. 地面设置</strong></p>
+<ul>
+<li><p><strong>包括类型：</strong>格网、地面</p></li>
+<li><p><strong>基本功能：</strong>选择地面/格网，设置颜色、设置高度</p></li>
+</ul></li>
+<li><p><strong>6. 环境光设置</strong></p>
+<ul>
+<li><p><strong>概述：</strong>环境光是从周围环境的各个方向投射过来，在空间中近似均匀分布的光线。也就是说，在任何位置、任何方向上，环境光的强度都是一样的。</p></li>
+<li><p><strong>包括类型：</strong>环境光强度、选择天空盒</p></li>
+</ul></li>
+<li><p><strong>7. 后期处理</strong></p>
+<ul>
+<li><p><strong>概述：</strong>后期处理是提升模型质量的关键步骤，通过色彩、细节、光影等方面的调整和优化，能够使模型更加真实、细腻和生动。</p></li>
+<li><p><strong>操作细节：</strong></p></li>
+</ul></li>
+</ul>
+<p>选择预设的滤镜效果。</p>
+<p>调整场景的亮度、对比度、饱和度等参数。</p>
+<p>应用特殊效果，如模糊、HDR等。</p>
+<ul>
+<li><p><strong>8. 热点设置</strong></p>
+<ul>
+<li><p><strong>功能描述：</strong>在AR场景中设置交互热点，用户可以通过点击或触摸与这些热点进行交互。</p></li>
+<li><p><strong>操作细节：</strong></p></li>
+<li><p>在场景中放置热点。</p></li>
+<li><p>为热点分配触发事件（如点击、触摸）。</p></li>
+<li><p>设置热点被触发后的动作（如显示文本、播放声音、跳转页面等）。</p></li>
+</ul></li>
+<li><p><strong>9. 测量设置</strong></p>
+<ul>
+<li><p><strong>功能描述（如果AR编辑器支持测量功能）：</strong>允许用户在AR场景中进行测量，如长度、面积等。</p></li>
+<li><p><strong>操作细节（如果支持）：</strong></p></li>
+<li><p>选择测量工具（如直尺、面积测量器等）。</p></li>
+<li><p>在场景中放置测量起点和终点。</p></li>
+<li><p>显示测量结果（如数值、单位等）。</p></li>
+</ul></li>
+</ul>
+<h2 id="ar-editor-h3">3.视图设置</h2>
+<ul>
+<li><p><strong>观看范围：</strong>在模型浏览时可以查看的模型或场景的边界或区域</p></li>
+<li><p><strong>视图显示：</strong>在模型浏览时可以设置不同的视图模式等。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-new-2d-marker"><small>← 上一篇</small><span>新建2D标识图</span></a><a href="#doc-ar-experience"><small>下一篇 →</small><span>AR体验</span></a></nav></article>
+<article class="doc-page" id="doc-ar-experience" data-slug="ar-experience"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">AR体验</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ar-experience-h1">1. 识别2D标识图：</a><a href="#ar-experience-h2">2. 加载虚拟内容：</a><a href="#ar-experience-h3">3. 交互体验：</a></details><div class="doc-body"><h2 id="ar-experience-h1">1. 识别2D标识图：</h2>
+<ul>
+<li><p><strong>单图识别与多图识别入口不同：</strong>AR体验入口分为单图识别和多图识别，AR编辑器里的【AR】按钮是单图识别，图片浏览页面下面的【AR体验】为单图识别，右上角的【AR】为多图识别，可以根据需求进行AR体验。</p></li>
+<li><p><strong>识别图少于12张与大于12张体验方式不同：</strong>当图片数量少于12张时，用户可以一边体验一边加载虚拟内容，当图片数量大于12张时，需要点击【开始识别】进行体验，</p></li>
+</ul>
+<h2 id="ar-experience-h2">2. 加载虚拟内容：</h2>
+<ul>
+<li><p><strong>加载预先编辑存储的内容：</strong>当2D标识图被成功识别后，应用会加载与该标识图关联的虚拟内容（如3D模型、动画、视频、音频等）。</p></li>
+<li><p><strong>叠加虚拟内容：</strong>加载完成后，虚拟内容会被精确地叠加到识别到的2D标识图上。用户可以通过移动手机来改变视角，观察虚拟内容与真实场景的互动效果。</p></li>
+</ul>
+<h2 id="ar-experience-h3">3. 交互体验：</h2>
+<ul>
+<li><p><strong>支持AR体验与编辑：</strong>用户可以与叠加的虚拟内容进行交互，如触摸、拖动、缩放等。应用可以根据用户的交互行为，触发不同的动画效果、声音反馈等，提升用户的参与感和沉浸感。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-editor"><small>← 上一篇</small><span>AR编辑器</span></a><a href="#doc-ar-save-share"><small>下一篇 →</small><span>保存与分享</span></a></nav></article>
+<article class="doc-page" id="doc-ar-save-share" data-slug="ar-save-share"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">保存与分享</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-experience"><small>← 上一篇</small><span>AR体验</span></a><a href="#doc-ar-publish"><small>下一篇 →</small><span>作品发布</span></a></nav></article>
+<article class="doc-page" id="doc-ar-publish" data-slug="ar-publish"><div class="breadcrumbs">快速开始 / 快速了解“我的AR” / 创建2D标识图</div><h1 tabindex="-1">作品发布</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#ar-publish-h1">1. 点击发布功能</a><a href="#ar-publish-h2">2. 选择图片/视频上传</a><a href="#ar-publish-h3">3. 设置封面</a><a href="#ar-publish-h4">4. 添加配乐和特效（可选）</a><a href="#ar-publish-h5">5. 输入标题和描述</a><a href="#ar-publish-h6">6. 设置权限和发布</a></details><div class="doc-body"><p>将标识图设置封面并发布到发现广场的流程可以分为以下几个步骤：</p>
+<h2 id="ar-publish-h1">1. 点击发布功能</h2>
+<ul>
+<li><p>对于编辑虚拟内容的标识图，点击右上方的【发布】按钮。</p></li>
+</ul>
+<h2 id="ar-publish-h2">2. 选择图片/视频上传</h2>
+<ul>
+<li><p><strong>找到【+】按钮：</strong>在发布信息页面，点击【+】图标。</p></li>
+<li><p><strong>选择添加方式：</strong>目前只支持选择一个视频，图片最多可以选择9张，</p>
+<ul>
+<li><p><strong>默认轮播图：</strong>选择2D标识图作为封面和展示内容。</p></li>
+<li><p><strong>从录制视频库选择：</strong>允许用户从已录制的视频库中选择视频内容。</p></li>
+<li><p><strong>拍摄图片/视频：</strong>允许用户直接通过设备的摄像头拍摄新的图片或视频。</p></li>
+<li><p><strong>从相册中导入：</strong>允许用户从设备的相册或照片库中导入图片。</p></li>
+</ul></li>
+</ul>
+<h2 id="ar-publish-h3">3. 设置封面</h2>
+<ul>
+<li><p>默认第一个文件为封面，也可以通过左右滑动更改封面。</p></li>
+</ul>
+<h2 id="ar-publish-h4">4. 添加配乐和特效（可选）</h2>
+<ul>
+<li><p>在图片或视频上，可以添加配乐、滤镜、贴纸、转场等特效。</p></li>
+<li><p>这些功能可以增强图片/视频的表现力和吸引力。</p></li>
+</ul>
+<h2 id="ar-publish-h5">5. 输入标题和描述</h2>
+<ul>
+<li><p>在发布前，可以为图片或视频输入一个吸引人的标题和简短的描述。</p></li>
+<li><p>这有助于增加作品的曝光率和吸引力。</p></li>
+</ul>
+<h2 id="ar-publish-h6">6. 设置权限和发布</h2>
+<ul>
+<li><p>根据需要，可以设置图片/视频的可见范围（如公开、仅好友可见等）。</p></li>
+<li><p>最后，点击“发布”按钮，将模型上传到抖音平台。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-save-share"><small>← 上一篇</small><span>保存与分享</span></a><a href="#doc-ar-create-3d-marker"><small>下一篇 →</small><span>创建3D标识图</span></a></nav></article>
+<article class="doc-page" id="doc-ar-create-3d-marker" data-slug="ar-create-3d-marker"><div class="breadcrumbs">快速开始 / 快速了解“我的AR”</div><h1 tabindex="-1">创建3D标识图</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-publish"><small>← 上一篇</small><span>作品发布</span></a><a href="#doc-ar-create-object"><small>下一篇 →</small><span>创建物体</span></a></nav></article>
+<article class="doc-page" id="doc-ar-create-object" data-slug="ar-create-object"><div class="breadcrumbs">快速开始 / 快速了解“我的AR”</div><h1 tabindex="-1">创建物体</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-create-3d-marker"><small>← 上一篇</small><span>创建3D标识图</span></a><a href="#doc-ar-create-scene"><small>下一篇 →</small><span>创建场景</span></a></nav></article>
+<article class="doc-page" id="doc-ar-create-scene" data-slug="ar-create-scene"><div class="breadcrumbs">快速开始 / 快速了解“我的AR”</div><h1 tabindex="-1">创建场景</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-create-object"><small>← 上一篇</small><span>创建物体</span></a><a href="#doc-quick-my-vr"><small>下一篇 →</small><span>快速了解“我的VR”</span></a></nav></article>
+<article class="doc-page" id="doc-quick-my-vr" data-slug="quick-my-vr"><div class="breadcrumbs">快速开始</div><h1 tabindex="-1">快速了解“我的VR”</h1><div class="doc-body"><div class="pending-state empty-state"><span class="pending-icon" aria-hidden="true">—</span><h2>暂无内容</h2><p>你可以通过目录查看其他教程。</p></div></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ar-create-scene"><small>← 上一篇</small><span>创建场景</span></a><a href="#doc-my-assets-overview"><small>下一篇 →</small><span>概述</span></a></nav></article>
+<article class="doc-page" id="doc-my-assets-overview" data-slug="my-assets-overview"><div class="breadcrumbs">快速开始 / 快速了解“我的素材”</div><h1 tabindex="-1">概述</h1><div class="doc-body"><ul>
+<li><p>个人素材是用户自己创作、收集或购买的，专属于自己的素材资源，可以进行添加、编辑、管理。</p></li>
+<li><p>适用场景：可以用于AR编辑器、我的模型、我的AR</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-quick-my-vr"><small>← 上一篇</small><span>快速了解“我的VR”</span></a><a href="#doc-my-assets-categories"><small>下一篇 →</small><span>分类</span></a></nav></article>
+<article class="doc-page" id="doc-my-assets-categories" data-slug="my-assets-categories"><div class="breadcrumbs">快速开始 / 快速了解“我的素材”</div><h1 tabindex="-1">分类</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#my-assets-categories-h1">1. 图片</a><a href="#my-assets-categories-h2">2. 视频</a><a href="#my-assets-categories-h3">3. 模型</a><a href="#my-assets-categories-h4">4. 贴图</a><a href="#my-assets-categories-h5">5. 特殊几何体</a><a href="#my-assets-categories-h6">6. 材质球</a><a href="#my-assets-categories-h7">7. 灯光预设</a><a href="#my-assets-categories-h8">8. 天空盒</a><a href="#my-assets-categories-h9">9. 视频制作</a><a href="#my-assets-categories-h10">10. 行为</a><a href="#my-assets-categories-h11">11. 入场动画</a></details><div class="doc-body"><h2 id="my-assets-categories-h1">1. 图片</h2>
+<p>图片是后期处理中最基本的素材之一，可以用于创建视觉元素、背景、纹理等。</p>
+<h2 id="my-assets-categories-h2">2. 视频</h2>
+<p>视频可以展示连续的动作和场景，为观众带来更加生动的视觉体验。</p>
+<h2 id="my-assets-categories-h3">3. 模型</h2>
+<p>模型是三维空间中物体的数字化表示，通过后期处理可以将其渲染成逼真的三维图像。</p>
+<h2 id="my-assets-categories-h4">4. 贴图</h2>
+<p>贴图可以为模型提供表面的纹理和细节，使其看起来更加真实。</p>
+<h2 id="my-assets-categories-h5">5. 特殊几何体</h2>
+<p>特殊几何体具有独特的形状和结构，可以用于创建独特的视觉效果和场景。</p>
+<h2 id="my-assets-categories-h6">6. 材质球</h2>
+<p>在3D建模和渲染中，材质球用于定义模型表面的物理属性，如颜色、光泽度、反射等。</p>
+<h2 id="my-assets-categories-h7">7. 灯光预设</h2>
+<p>指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。</p>
+<h2 id="my-assets-categories-h8">8. 天空盒</h2>
+<p>选择天空盒（通常用于3D渲染）来创建逼真的环境。</p>
+<h2 id="my-assets-categories-h9">9. 视频制作</h2>
+<p>可以选择预览视频制作效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。</p>
+<h2 id="my-assets-categories-h10">10. 行为</h2>
+<p>行为指的是对象的动态属性，如移动、旋转、缩放等。</p>
+<h2 id="my-assets-categories-h11">11. 入场动画</h2>
+<p>选择预设的入场动画模板，用户可以根据需要为特定元素或场景添加合适的入场动画效果。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-my-assets-overview"><small>← 上一篇</small><span>概述</span></a><a href="#doc-public-assets-overview"><small>下一篇 →</small><span>概述</span></a></nav></article>
+<article class="doc-page" id="doc-public-assets-overview" data-slug="public-assets-overview"><div class="breadcrumbs">快速开始 / 快速了解“公共素材”</div><h1 tabindex="-1">概述</h1><div class="doc-body"><ul>
+<li><p>公共素材是由平台提供的，可供所有用户免费或按特定条件使用的素材资源，不能进行添加和删除。</p></li>
+<li><p>适用场景：可以用于AR编辑器、我的模型、我的AR。</p></li>
+</ul></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-my-assets-categories"><small>← 上一篇</small><span>分类</span></a><a href="#doc-public-assets-categories"><small>下一篇 →</small><span>分类</span></a></nav></article>
+<article class="doc-page" id="doc-public-assets-categories" data-slug="public-assets-categories"><div class="breadcrumbs">快速开始 / 快速了解“公共素材”</div><h1 tabindex="-1">分类</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#public-assets-categories-h1">1. 图片</a><a href="#public-assets-categories-h2">2. 视频</a><a href="#public-assets-categories-h3">3. 模型</a><a href="#public-assets-categories-h4">4. 贴图</a><a href="#public-assets-categories-h5">5. 特殊几何体</a><a href="#public-assets-categories-h6">6. 材质球</a><a href="#public-assets-categories-h7">7. 灯光预设</a><a href="#public-assets-categories-h8">8. 天空盒</a><a href="#public-assets-categories-h9">9. 视频制作</a><a href="#public-assets-categories-h10">10. 行为</a><a href="#public-assets-categories-h11">11. 入场动画</a></details><div class="doc-body"><h2 id="public-assets-categories-h1">1. 图片</h2>
+<p>图片是后期处理中最基本的素材之一，可以用于创建视觉元素、背景、纹理等。</p>
+<h2 id="public-assets-categories-h2">2. 视频</h2>
+<p>视频可以展示连续的动作和场景，为观众带来更加生动的视觉体验。</p>
+<h2 id="public-assets-categories-h3">3. 模型</h2>
+<p>模型是三维空间中物体的数字化表示，通过后期处理可以将其渲染成逼真的三维图像。</p>
+<h2 id="public-assets-categories-h4">4. 贴图</h2>
+<p>贴图可以为模型提供表面的纹理和细节，使其看起来更加真实。</p>
+<h2 id="public-assets-categories-h5">5. 特殊几何体</h2>
+<p>特殊几何体具有独特的形状和结构，可以用于创建独特的视觉效果和场景。</p>
+<h2 id="public-assets-categories-h6">6. 材质球</h2>
+<p>在3D建模和渲染中，材质球用于定义模型表面的物理属性，如颜色、光泽度、反射等。</p>
+<h2 id="public-assets-categories-h7">7. 灯光预设</h2>
+<p>指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。</p>
+<h2 id="public-assets-categories-h8">8. 天空盒</h2>
+<p>选择天空盒（通常用于3D渲染）来创建逼真的环境。</p>
+<h2 id="public-assets-categories-h9">9. 视频制作</h2>
+<p>可以选择预览视频制作效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。</p>
+<h2 id="public-assets-categories-h10">10. 行为</h2>
+<p>行为指的是对象的动态属性，如移动、旋转、缩放等。</p>
+<h2 id="public-assets-categories-h11">11. 入场动画</h2>
+<p>选择预设的入场动画模板，用户可以根据需要为特定元素或场景添加合适的入场动画效果。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-public-assets-overview"><small>← 上一篇</small><span>概述</span></a><a href="#doc-kzgddtsr514f95p4"><small>下一篇 →</small><span>“我的模型”详细教程</span></a></nav></article>
+<article class="doc-page" id="doc-kzgddtsr514f95p4" data-slug="kzgddtsr514f95p4"><div class="breadcrumbs">详细教程</div><h1 tabindex="-1">“我的模型”详细教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-public-assets-categories"><small>← 上一篇</small><span>分类</span></a><a href="#doc-nxyk3gtlemekta58"><small>下一篇 →</small><span>“我的AR”详细教程</span></a></nav></article>
+<article class="doc-page" id="doc-nxyk3gtlemekta58" data-slug="nxyk3gtlemekta58"><div class="breadcrumbs">详细教程</div><h1 tabindex="-1">“我的AR”详细教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-kzgddtsr514f95p4"><small>← 上一篇</small><span>“我的模型”详细教程</span></a><a href="#doc-zxiizge5tvrfyv6s"><small>下一篇 →</small><span>“我的VR”详细教程</span></a></nav></article>
+<article class="doc-page" id="doc-zxiizge5tvrfyv6s" data-slug="zxiizge5tvrfyv6s"><div class="breadcrumbs">详细教程</div><h1 tabindex="-1">“我的VR”详细教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-nxyk3gtlemekta58"><small>← 上一篇</small><span>“我的AR”详细教程</span></a><a href="#doc-brwe1sh5ec8ebuy1"><small>下一篇 →</small><span>“我的素材”详细教程</span></a></nav></article>
+<article class="doc-page" id="doc-brwe1sh5ec8ebuy1" data-slug="brwe1sh5ec8ebuy1"><div class="breadcrumbs">详细教程</div><h1 tabindex="-1">“我的素材”详细教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-zxiizge5tvrfyv6s"><small>← 上一篇</small><span>“我的VR”详细教程</span></a><a href="#doc-ydt73hgkzzr7l2a9"><small>下一篇 →</small><span>“公共素材”详细教程</span></a></nav></article>
+<article class="doc-page" id="doc-ydt73hgkzzr7l2a9" data-slug="ydt73hgkzzr7l2a9"><div class="breadcrumbs">详细教程</div><h1 tabindex="-1">“公共素材”详细教程</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-brwe1sh5ec8ebuy1"><small>← 上一篇</small><span>“我的素材”详细教程</span></a><a href="#doc-gcgqamtc4n5ph8z6"><small>下一篇 →</small><span>会员功能</span></a></nav></article>
+<article class="doc-page" id="doc-gcgqamtc4n5ph8z6" data-slug="gcgqamtc4n5ph8z6"><div class="breadcrumbs">用户文档</div><h1 tabindex="-1">会员功能</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#gcgqamtc4n5ph8z6-h1">1. 会员类型</a><a href="#gcgqamtc4n5ph8z6-h2">2. 会员权益</a><a href="#gcgqamtc4n5ph8z6-h3">3. 定价方案</a><a href="#gcgqamtc4n5ph8z6-h4">4. 如何成为会员</a><a href="#gcgqamtc4n5ph8z6-h5">5. 查看会员权益</a><a href="#gcgqamtc4n5ph8z6-h6">6. 定制服务</a></details><div class="doc-body"><h2 id="gcgqamtc4n5ph8z6-h1">1. 会员类型</h2>
+<p>见得3D为您提供体验版与高级版不同层级的服务，以满足从个人爱好者到专业工作室的不同需求：</p>
+<p>体验版（免费版）：专为初学者和3D建模爱好者设计。您可以免费体验基础的摄影测量建模功能，探索3D数字化的乐趣。</p>
+<p>高级版（付费版）：专为追求高品质模型和高效产出的专业用户、设计师及工作室打造。解锁前沿的3DGS与NeuS建模技术，享受无限制的资源下载与导出特权。</p>
+<h2 id="gcgqamtc4n5ph8z6-h2">2. 会员权益</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="会员功能表格"><table><thead><tr><th scope="col">功能模块</th><th scope="col">体验版 (免费)</th><th scope="col">高级版 (付费)</th></tr></thead><tbody>
+<tr><td>建模类型</td><td>仅限摄影测量建模+1次3DGS与 NeuS建模体验</td><td>摄影测量 + 3DGS + NeuS</td></tr>
+<tr><td>建模图片数量</td><td>单次建模最多300张图片，300秒视频</td><td>单次建模图片数量和视频数量无限制</td></tr>
+<tr><td>模型下载次数</td><td>10次 / 天</td><td>无限制下载</td></tr>
+<tr><td>模型导出格式</td><td>仅限1种OBJ格式</td><td>支持所有可用格式 (如 .fbx, .stl, .ply等)</td></tr>
+<tr><td>3D打印特权</td><td>原价打印</td><td>首单8折，常驻9折优惠</td></tr>
+<tr><td>云端存储空间</td><td>2GB</td><td>50GB+ 专属空间</td></tr>
+<tr><td>服务支持</td><td>社区支持</td><td>1对1专属客服</td></tr>
+<tr><td></td><td>排队建模</td><td>优先建模</td></tr>
+</tbody></table></div>
+<h2 id="gcgqamtc4n5ph8z6-h3">3. 定价方案</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="会员功能表格"><table><thead><tr><th scope="col">套餐类型</th><th scope="col">价格 (原价)</th><th scope="col">限时活动价</th><th scope="col">使用场景</th></tr></thead><tbody>
+<tr><td>月度会员</td><td>¥48 / 月</td><td>¥28 / 首月</td><td>适合短期项目或尝鲜用户，极低试错成本。</td></tr>
+<tr><td>季度会员</td><td>¥128 / 季</td><td>¥88 / 首季</td><td>适合有一定建模需求的小型工作室，性价比均衡。</td></tr>
+<tr><td>年度会员</td><td>¥398 / 年</td><td>¥298 / 首年</td><td>最推荐方案。适合长期从业者，折合每月仅约¥25。</td></tr>
+</tbody></table></div>
+<h2 id="gcgqamtc4n5ph8z6-h4">4. 如何成为会员</h2>
+<p>目前，见得3D采用官方微信号人工开通模式，流程如下：</p>
+<ul>
+<li><p>关注公众号：在微信搜索并关注“见得3D”官方公众号或者再APP中查看“官方微信号”二维码。</p></li>
+<li><p>联系客服：点击菜单栏的“联系方式”或直接通过“官方微信号”二维码添加微信号。</p></li>
+<li><p>选择方案：根据客服提供的月度、季度或年度方案进行选择。</p></li>
+<li><p>完成支付：通过微信支付完成费用缴纳。</p></li>
+<li><p>账号升级：提供您的见得3D注册手机号或邮箱号，客服将在5分钟内为您完成账号升级。</p></li>
+</ul>
+<h2 id="gcgqamtc4n5ph8z6-h5">5. 查看会员权益</h2>
+<p>您可以随时在App内查看当前的会员状态及详细权益</p>
+<ul>
+<li><p>打开“见得3D”App，点击底部导航栏“我的”。</p></li>
+<li><p>在个人中心页面顶部，点击您的头像或会员标识。</p></li>
+<li><p>进入“帮助文档”页面，即可查看所有已解锁的特权列表。</p></li>
+</ul>
+<h2 id="gcgqamtc4n5ph8z6-h6">6. 定制服务</h2>
+<p>如果您有特殊的模型展示需求，例如：</p>
+<ul>
+<li><p>•个性化展厅定制：为您的模型打造专属的虚拟展示空间。</p></li>
+<li><p>•高级动效设计：为模型添加特定的交互或动画效果。</p></li>
+<li><p>•品牌联名展示：在展示区域植入您的品牌元素。</p></li>
+</ul>
+<p>定制流程：请直接联系官方客服，说明您的具体需求，我们将为您提供一对一的方案设计与专属定价。</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ydt73hgkzzr7l2a9"><small>← 上一篇</small><span>“公共素材”详细教程</span></a><a href="#doc-ldx9mgbwtu9y01ee"><small>下一篇 →</small><span>更新动态</span></a></nav></article>
+<article class="doc-page" id="doc-ldx9mgbwtu9y01ee" data-slug="ldx9mgbwtu9y01ee"><div class="breadcrumbs">产品资讯</div><h1 tabindex="-1">更新动态</h1><div class="doc-body"><p>敬请期待</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-gcgqamtc4n5ph8z6"><small>← 上一篇</small><span>会员功能</span></a><a href="#doc-faq"><small>下一篇 →</small><span>常见问题FAQ</span></a></nav></article>
+<article class="doc-page" id="doc-faq" data-slug="faq"><div class="breadcrumbs">用户文档</div><h1 tabindex="-1">常见问题FAQ</h1><div class="doc-body"><div class="pending-state empty-state"><span class="pending-icon" aria-hidden="true">—</span><h2>暂无内容</h2><p>你可以通过目录查看其他教程。</p></div></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-ldx9mgbwtu9y01ee"><small>← 上一篇</small><span>更新动态</span></a><a href="#doc-khg6l5b699vgg3bc"><small>下一篇 →</small><span>意见反馈</span></a></nav></article>
+<article class="doc-page" id="doc-khg6l5b699vgg3bc" data-slug="khg6l5b699vgg3bc"><div class="breadcrumbs">联系我们</div><h1 tabindex="-1">意见反馈</h1><div class="doc-body"><p>为了给您提供更好的服务，希望您能抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与！</p>
+<p>填写链接：<a href="http://seegetspace.com/about" target="_blank" rel="noopener noreferrer">http://seegetspace.com/about</a></p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-faq"><small>← 上一篇</small><span>常见问题FAQ</span></a><a href="#doc-tonm2emnigg4x8uf"><small>下一篇 →</small><span>商务合作</span></a></nav></article>
+<article class="doc-page" id="doc-tonm2emnigg4x8uf" data-slug="tonm2emnigg4x8uf"><div class="breadcrumbs">联系我们</div><h1 tabindex="-1">商务合作</h1><div class="doc-body"><p>联系电话：+86-18071548262</p>
+<p>邮箱：contact@seegetspace.com</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-khg6l5b699vgg3bc"><small>← 上一篇</small><span>意见反馈</span></a><a href="#doc-it121gbnx6qn8gra"><small>下一篇 →</small><span>联系客服</span></a></nav></article>
+<article class="doc-page" id="doc-it121gbnx6qn8gra" data-slug="it121gbnx6qn8gra"><div class="breadcrumbs">联系我们</div><h1 tabindex="-1">联系客服</h1><div class="doc-body"><p>商务合作：contact@seegetspace.com</p>
+<p>简历投递：hr@seegetspace.com</p>
+<p>投资对接：ceo@seegetspace.com</p>
+<p>联系电话：+86-18071548262</p></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-tonm2emnigg4x8uf"><small>← 上一篇</small><span>商务合作</span></a><a href="#doc-fcou6gcsle7k2g0w"><small>下一篇 →</small><span>新建模型</span></a></nav></article>
+<article class="doc-page" id="doc-fcou6gcsle7k2g0w" data-slug="fcou6gcsle7k2g0w"><div class="breadcrumbs">WEB端用户文档</div><h1 tabindex="-1">新建模型</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#fcou6gcsle7k2g0w-h1">📁 文件导入说明</a><a href="#fcou6gcsle7k2g0w-h2">一、点击选择（手动选择）</a><a href="#fcou6gcsle7k2g0w-h3">二、拖拽上传（直接拖入）</a><a href="#fcou6gcsle7k2g0w-h4">三、其他通用情况</a></details><div class="doc-body"><h2 id="fcou6gcsle7k2g0w-h1">📁 文件导入说明</h2>
+<p>支持格式：JPG、PNG、MP4、MOV 单个文件限制：最大 200MB</p>
+<h3 id="fcou6gcsle7k2g0w-h2">一、点击选择（手动选择）</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="新建模型表格"><table><thead><tr><th scope="col">操作方式</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>✅ 选择文件</td><td>导入成功</td><td>直接识别你选中的图片或视频文件</td></tr>
+<tr><td>✅ 选择文件夹</td><td>导入成功</td><td>自动识别该文件夹内的所有图片或视频文件</td></tr>
+<tr><td>✅ 选择多层结构文件夹</td><td>导入成功</td><td>只识别该文件夹下面一层的图片或视频文件（更深的子文件夹里的文件不会识别）</td></tr>
+<tr><td>❌ 选择空文件夹</td><td>导入失败</td><td>文件夹里没有文件，请选择有内容的文件夹</td></tr>
+<tr><td>❌ 选择不含图片/视频的文件夹</td><td>导入失败</td><td>文件夹里没有支持的图片或视频格式，请检查后再选</td></tr>
+</tbody></table></div>
+<h3 id="fcou6gcsle7k2g0w-h3">二、拖拽上传（直接拖入）</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="新建模型表格"><table><thead><tr><th scope="col">拖拽方式</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>✅ 拖拽同类型文件夹</td><td>导入成功</td><td>文件夹内只包含图片和视频文件，系统会自动识别</td></tr>
+<tr><td>❌ 拖拽多个不同类型文件</td><td>导入失败</td><td>一次性拖入了多种类型的文件（比如图片+文档+压缩包），不符合“只允许单一类型”的要求，请重新整理后再拖入</td></tr>
+<tr><td>❌ 拖拽多层结构文件夹</td><td>导入失败</td><td>文件夹里面还套着子文件夹，不符合“只允许单层数据”的要求，请把文件放在同一层目录后再拖入</td></tr>
+<tr><td>❌ 拖拽单个不支持格式的文件</td><td>导入失败</td><td>拖入的文件不是 JPG、PNG、MP4 或 MOV 格式，请选择支持的格式</td></tr>
+<tr><td>❌ 拖拽超过 200MB 的文件</td><td>导入失败</td><td>单个文件超过 200MB，请压缩或选择较小的文件</td></tr>
+<tr><td>❌ 拖拽空文件夹</td><td>导入失败</td><td>文件夹里没有文件，请拖入有内容的文件夹</td></tr>
+<tr><td>❌ 拖拽不含图片/视频的文件夹</td><td>导入失败</td><td>文件夹里没有支持的图片或视频格式，请检查后再选</td></tr>
+</tbody></table></div>
+<h3 id="fcou6gcsle7k2g0w-h4">三、其他通用情况</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="新建模型表格"><table><thead><tr><th scope="col">情况</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>⚠️ 同时拖拽文件和文件夹</td><td>导入失败</td><td>请单独拖拽文件或单独拖拽文件夹，不要混合拖入</td></tr>
+<tr><td>⚠️ 拖拽快捷方式/别名</td><td>导入失败</td><td>不支持快捷方式或别名文件，请拖拽真实的文件或文件夹</td></tr>
+<tr><td>⚠️ 网络中断或文件被占用</td><td>导入失败</td><td>请检查文件是否可正常访问，或稍后重试</td></tr>
+</tbody></table></div></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-it121gbnx6qn8gra"><small>← 上一篇</small><span>联系客服</span></a><a href="#doc-krgww5kx8k2z9twc"><small>下一篇 →</small><span>导入模型</span></a></nav></article>
+<article class="doc-page" id="doc-krgww5kx8k2z9twc" data-slug="krgww5kx8k2z9twc"><div class="breadcrumbs">WEB端用户文档</div><h1 tabindex="-1">导入模型</h1><details class="inline-outline"><summary>本篇目录</summary><a href="#krgww5kx8k2z9twc-h1">📦 3D模型导入说明</a><a href="#krgww5kx8k2z9twc-h2">一、文件夹结构说明</a><a href="#krgww5kx8k2z9twc-h3">二、点击选择（手动选择）</a><a href="#krgww5kx8k2z9twc-h4">三、拖拽导入（直接拖入）</a><a href="#krgww5kx8k2z9twc-h5">四、其他通用情况</a></details><div class="doc-body"><h2 id="krgww5kx8k2z9twc-h1">📦 3D模型导入说明</h2>
+<p>支持格式：ZIP压缩包 或 单模型文件 支持文件类型：OBJ、PLY（PLY包括格网模型与3DGS模型） 单个文件限制：最大 200MB</p>
+<h3 id="krgww5kx8k2z9twc-h2">一、文件夹结构说明</h3>
+<p>正确结构示意图：</p>
+<p><img loading="lazy" src="data:image/png;base64,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uaR89NFHcumllzpyD8cmbATneaFECbgxrUZ23313l/IHIkVWWGGFovrqCgV/sKcmFcZBxyJfGV5+1RAfW3+7Gte2a1QOgcyIlC5w4yhhhinnOYbmufIa/5DmJZZqcVZ84aabkAE20lAqTaZvvfWW7LPPPjJlyhR3qY4dO8rGG28siy66qLs+2ila22+//SY//vij7LLLLo5M11577bBpuX1MEmuttVZun3I4QegrcsMNN8hPP/0k5513Xi5PpTY23HDDoqbrOIc22WSTgpdnLFSrCjPfcccd7ppo3X5dr776qsuKJs64IZrqdviy5DgOxlAwERQSptCTJk0StN840i9URxrnzz77bDetZxaRpB9ptMHqLB+BTImU5hci0w4dOsqUyVPk808/k44d/n6I5pxzTje9J/UFMoLUunbtWnZoFFPFY489Nkeiq6yyilx22WUy99xz+5eUo446ymmQzz33nGvTCSec4MiVNkTJVVddJWuuuWarUxMnTpTnn39eTj/9dDdFfeyxx9wUu1OnTq3ylbvToUOHXH/KrStJ+W+++UYgUmSnnXYSHS80Y34I//OcXyhxU9woTfHmm292xX/55RenSa+xxhphdXLiiSc60wwe+6FDh7Y6jy348ccfd0SGuaaawgwgbE81r2/XqgwCmRGpEijd0O2otF3LFH5SywMyfdo0mbNDe4EM0G6YTvMAoLWg5aG58uM8GitxphwvVbA5QgRIz5495ZJLLmlDopxDQ8ILvd1228mXX37pNFMIF0JNKrR1q622cpootlScWfRvvRZ7cCWF6bTvQBoyZIi88847gof8sMMOK3gpTA7YiiEqPPz5BIcV+VWb922Ot912W76iJZ0bPXq0c1xxXV5qPXr0SFwP2vGRRx7p8j/11FPSt2/fxGWrnRGtnb5y3/Xq1ause7zabW/k62VGpICqxOlv6zFNp0z+TaZMnSadO3WU78aNdTcO0zMcIyo6BdTpPmWJVS2HSB9++GFXPVoUtk//enpdTbmpr7jiCtl6660dcaBRHnfccZHmBy0TlfpOIn+aG5W3lGO+g47ySqR33323HHTQQZJPA54wYYKMGDHCXRYThmqXce1A84akVXSMMFuolortGZuwCqYS4kwRPP1aRs/nS5mu9+7dW8aMGeNCuPbbb7982VudI+QLYdZRKokSWoX3PYmceeaZ7sVJ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" alt="OBJ文件夹压缩包示意"></p>
+<p><img loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAABZCAYAAADYSg2+AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAlKADAAQAAAABAAAAWQAAAACoMqftAAAYlklEQVR4Ae2dB3wVxfbHTxISQlNRsKBCYpciVUXUJ9i7WLA3wN57w4L9/6zYe+/1Yde/SrMrIgiCilJUQHooCZC27/edx8Sbm5vkBlLu6p58Nrs7O7t3dva355yZ+c3ZNIuTuXPn9lbSQWlpaX2DIMiJOxztRjVADYwVPsZmZGRc27Jly2mxVZLmdxYuXLhWSUnJYIHoXJ8WraMaSKIGhjRq1Ahg5ZHXAQowFRcXD9d+lyQuEGWJaiC+BsYKVH0AVTpH0ExaRWCiMiJZlRroIoV0DSemSTvlaGdq7FVkHy2rcWNjzRJJVAOxNSAFZEWFhSb3KDbZhKM+6TrokOWPAKDG2dmWnp4egclXSrQuVwNyxh1G4pWNzN5B6UJZOVOXmZVVL0AC3X4pV9poJxQ1AJiyhJVY0fPs20gJ5QAF+upSUJejp86zvMIMC6zUMqQJGwdFtsNmrUwIrxcw19b98ULEv6W1de0wXCdNzy5WVBc55VNij9bR9uLFi+3R0Qvtpe/z7IWxC+3F8Qvt2QlL7cFRU2zWvDxbsWJFhaVQ9hog8gBTRYZ9/LENHDCg2jJR7iMOP9x+//13mzFjhi1btsxee+01u//++6u9Fc7d5V//qjZfQ2VI9DKhoepVqNDZS0psRVGRlRRKQ2VmWGlRqc1ckGEjps+WxlJDICPNgtJSM8E9KE2zjLTA1m9Sajfvn2tNmjSptLzff/+9vfLyy/bHH3/YWmutZXvsuaftu+++Zfmffvppm/zzz5ata6CJc3JybP/997fmzZuX5fEbzz/3nG22+ea23Xbb+aRy611697bHHnvM3n77bTvggAPKHYvdGTVqlBULGBtttJEdcvDBdu1119ly1UF+fn5sNrc9ffp0GzliRFk6LxAv4NNPPVWWxsbOAllubm65tFTZqXdAlQooTbOzLKdVEystMT3YdPeWp8vSBiX4VWlKTLN0gYhustKSUlM2m52/3FVuZYAaPny4XXzRRbbffvvZYf362W+//WY3XH+9TfzhB7vo4otdfX/66afO7nfTw8jLy7Nnn3nGAeLZZ5+t8DxG6MGWqKweUF988YVdOWhQuXy8HNfrN4bceWe59BtuvNF22GEHl/acrn3MMcfYvHnzbNq0afbDhAk2btw4y1u0yF555RWXh7wArkgvWYGuyTozM7NM+5GGLF++3LLVYKIOU1VWG1BqKjrfJ9ENVnasZ+e2tlYztSTl2Dm1KQxJJ6mizBpJKxUJVGglByi9pSWlgeUJUEVFcxP9jKvgm2+6yQ4+5BAbFPPQN9tsM7v0kkvsYGmGTbWNAJDjjz/ebfdV+qE6R10npk45l1bZvx49ejgAjB071u677z575JFHyrJS0hN0zYv1W506drQ11lzTHcO0ffvtt/Z///63DR061LbeemunPecvWGBLlyyxaVOnunydO3d2a8r7vcD2/fjxNnjwYGfmH37oITvttNPc8fPPO8969+ljm266qdtPxX+r7UPdc8899uGHH1a4t4/lY9ypNxdQxUtxWroVFJkt07JEGii/MLB8bS9V1iVa5xdL1ReyrXSlFUhFFQeVF/Wnn34yjUHaiSecUO6n9thjD9tggw3s088+K5fODv7JZ9JYbdu1c+axQoa4BDTG2uusY3123dUdmTJlitsn7ddff3WaY5dddnFpNC4wX2guTOsKaRZMKOYO0O0qUPTYdlu3zf4WW2xR9muYs+HDhjlttHTpUnddDs6fP9/GyaRzT6kslT+lJEu944472jdff10OVF9++aV9paVrly4JtReaSEpHmkgmTj5Ssfbxt0kr1D8pLLddulI7BTpuTmMlLhRgwhS02XDDChl4mzE3Xu7VC7CTyry9NNU9995rp55ySo1aamjU46SNhgwZYjQWMD8PSYscLbMWK1MEsrPOPtvWXntta6xO4rPPOcc2l09WlUyQOcQsdu3a1XD6R8iMN2na1L755hu7T2Xt2KGD/SATPmnixKou06DHVtvkYULQQtw8sqbUPZWxrdJ3r+RtShNQwIjwY1lCTwmLtgEQYAJc5GHPtexcAkcSS1NVOq1DHN14BxswYWq8YO6OPOool/+7776zG+XvtGrdusxX8vmqWh900EFOu91www3WThqukbRQ3759y52CaQJ8jz36qOsk/uqrrwwfDqHFh2P+559/uv3c3Fw766yz7L1333UmkcQPPvjAab6FMo83qYxt27Z118Pva9OmjW3d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" alt="OBJ文件夹内的 JPG、MTL、OBJ 文件示意"></p>
+<p>支持的OBJ/PLY文件组合方式：</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="导入模型表格"><table><thead><tr><th scope="col">组合类型</th><th scope="col">包含文件</th><th scope="col">是否支持</th></tr></thead><tbody>
+<tr><td>✅ 组合一</td><td>OBJ/PLY + MTL</td><td>支持</td></tr>
+<tr><td>✅ 组合二</td><td>OBJ /PLY + JPG</td><td>支持</td></tr>
+<tr><td>✅ 组合三</td><td>OBJ /PLY + 多个JPG</td><td>支持</td></tr>
+<tr><td>✅ 组合四</td><td>OBJ /PLY + MTL + JPG</td><td>支持</td></tr>
+<tr><td>✅ 组合五</td><td>单OBJ/PLY 文件（无配套文件）</td><td>支持</td></tr>
+</tbody></table></div>
+<div class="table-wrap" tabindex="0" role="region" aria-label="导入模型表格"><table><thead><tr><th scope="col">文件夹类型</th><th scope="col">结构示例</th><th scope="col">是否支持</th></tr></thead><tbody>
+<tr><td>✅ 正确的单层文件夹结构</td><td>请参考上面的文件夹结构说明</td><td>支持</td></tr>
+<tr><td>❌ 多层文件夹结构</td><td>根文件夹 → 子文件夹 → 模型文件</td><td>不支持，请将模型、材质、贴图文件放在同一层文件夹内</td></tr>
+</tbody></table></div>
+<h3 id="krgww5kx8k2z9twc-h3">二、点击选择（手动选择）</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="导入模型表格"><table><thead><tr><th scope="col">操作方式</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>✅ 选择文件夹结构</td><td>导入成功</td><td>选择包含模型相关文件的文件夹，系统会自动识别</td></tr>
+<tr><td>✅ 选择单模型文件</td><td>导入成功</td><td>直接选中一个OBJ或PLY文件即可导入</td></tr>
+<tr><td>❌ 选择空文件夹</td><td>导入失败</td><td>文件夹里没有文件，请选择有内容的文件夹</td></tr>
+<tr><td>❌ 选择不含OBJ/PLY的文件夹</td><td>导入失败</td><td>文件夹里没有OBJ或PLY格式的模型文件，请检查后重新选择</td></tr>
+</tbody></table></div>
+<h3 id="krgww5kx8k2z9twc-h4">三、拖拽导入（直接拖入）</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="导入模型表格"><table><thead><tr><th scope="col">拖拽方式</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>✅ 拖拽符合要求的ZIP包</td><td>导入成功</td><td>ZIP压缩包内包含正确的文件夹结构或单模型文件</td></tr>
+<tr><td>✅ 拖拽单模型文件</td><td>导入成功</td><td>直接拖入一个OBJ或PLY文件即可上传</td></tr>
+<tr><td>❌ 拖拽其他类型文件</td><td>导入失败</td><td>拖入的文件不是ZIP压缩包，也不是OBJ或PLY模型文件，请重新选择</td></tr>
+<tr><td>❌ 拖拽多层结构文件夹</td><td>导入失败</td><td>文件夹里面还套着多层子文件夹，不符合单层文件夹结构的要求，请把模型文件放在同一层目录后再拖入</td></tr>
+<tr><td>❌ 拖拽超过200MB的文件</td><td>导入失败</td><td>文件超过200MB，请压缩或选择较小的模型文件</td></tr>
+<tr><td>❌ 拖拽空ZIP包</td><td>导入失败</td><td>压缩包里没有文件，请拖入有内容的ZIP包</td></tr>
+<tr><td>❌ 拖拽含有OBJ/PLY但也有其他无关类型文件的文件夹</td><td>导入失败</td><td>ZIP压缩包内除OBJ/PLY以外有不正确的文件类型</td></tr>
+<tr><td>❌ 拖拽为压缩的文件夹</td><td>导入失败</td><td>文件夹未压缩，请压缩后再重试</td></tr>
+</tbody></table></div>
+<h3 id="krgww5kx8k2z9twc-h5">四、其他通用情况</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="导入模型表格"><table><thead><tr><th scope="col">情况</th><th scope="col">结果</th><th scope="col">说明</th></tr></thead><tbody>
+<tr><td>⚠️ 同时拖拽多个文件/ZIP压缩包</td><td>导入失败</td><td>请一次只拖入一个ZIP压缩包或一个模型文件</td></tr>
+<tr><td>⚠️ 拖拽快捷方式/别名</td><td>导入失败</td><td>不支持快捷方式，请拖拽真实的文件或ZIP压缩包</td></tr>
+</tbody></table></div></div><nav class="neighbors" aria-label="相邻文档"><a href="#doc-fcou6gcsle7k2g0w"><small>← 上一篇</small><span>新建模型</span></a><span></span></nav></article></div><footer class="page-footer"><span>见得空间 · 用户文档</span><a href="#home">返回文档首页</a></footer></main>
+<aside class="outline" id="outline" aria-label="本篇目录"><p>本篇目录</p><div id="outline-links"><p class="empty-outline">从左侧选择文档，查看本篇目录。</p></div></aside>
+</div>
+<div class="overlay" id="menu-overlay" aria-hidden="true"></div><div class="toast" id="toast" role="status" hidden></div>
+<script id="docs-data" type="application/json">[{"slug":"zmgcca1r6qvs7enc","id":"doc-zmgcca1r6qvs7enc","title":"平台架构","parents":["概述"],"text":"内容准备中，敬请期待。","headings":[],"status":"media_description_only","image_count":0},{"slug":"zgo598cafz8v5cb9","id":"doc-zgo598cafz8v5cb9","title":"运行环境","parents":["概述"],"text":"目前支持在IOS手机端运行","headings":[],"status":"text_content","image_count":0},{"slug":"gm1n1ha8qd1s4mg2","id":"doc-gm1n1ha8qd1s4mg2","title":"自定义开发","parents":["概述"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"cpnf3z04qvqguwo2","id":"doc-cpnf3z04qvqguwo2","title":"会员服务","parents":["概述"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"pwh727vgi706tme2","id":"doc-pwh727vgi706tme2","title":"APP主页介绍","parents":["视频教程"],"text":"内容准备中，敬请期待。","headings":[],"status":"media_description_only","image_count":0},{"slug":"zc00py2sngcdgm0a","id":"doc-zc00py2sngcdgm0a","title":"创建模型入门教程","parents":["视频教程"],"text":"内容准备中，敬请期待。","headings":[],"status":"media_description_only","image_count":0},{"slug":"iqk0kwfpab49qefn","id":"doc-iqk0kwfpab49qefn","title":"创建AR入门教程","parents":["视频教程"],"text":"内容准备中，敬请期待。","headings":[],"status":"media_description_only","image_count":0},{"slug":"aki8viyy2klbgdbo","id":"doc-aki8viyy2klbgdbo","title":"创建VR入门教程","parents":["视频教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"zdq1iem423gtty7o","id":"doc-zdq1iem423gtty7o","title":"创建素材入门教程","parents":["视频教程"],"text":"内容准备中，敬请期待。","headings":[],"status":"media_description_only","image_count":0},{"slug":"dszt5ofnsetgd779","id":"doc-dszt5ofnsetgd779","title":"准备工作","parents":["快速开始","快速了解“我的模型”"],"text":"将一组数据还原成三维模型，最终的效果受到物体本身、拍摄方式、环境等因素影响，我们的建议如下：\n\n## 1. 拍照设备选择\n\n- **手机：** 使用手机拍照或从相册导入照片/视频进行建模。\n- **连接第三方相机：** 目前支持Pilot Go、Insta 360两种设备连接拍照，这些设备都可以用于拍摄建模所需的数据，但需要注意它们的镜头质量和分辨率。\n- **避免使用鱼眼或360°运动相机：** 这类设备通常会产生较大的畸变，这会在后期处理中引入不必要的复杂性。\n\n## 2. 采集对象选择\n\n应尽量选择特征点明显、纹理丰富的静止物体，以下物体不适合建模或者建模效果不佳：\n\n- **特征点明显、纹理丰富的静止物体：** 这些特征对于三维建模软件中的图像匹配和纹理映射非常重要。如：运动中的玩具；\n- **避免移动的物体：** 因为建模软件需要对比不同照片中的相同点，移动的物体会导致匹配失败。如：运动中的玩具；\n- **透明或半透明物体：** 这些物体会导致光线折射，影响照片的质量和纹理的捕捉。如：玻璃杯、矿泉水；\n- **反光和自反光的物体：** 高光区域会掩盖物体的纹理信息，使得建模变得困难。如：镜子；\n- **大面积纯色的物体：** 缺乏纹理和颜色变化会导致建模软件难以区分不同的区域。如：白墙、纯黑T恤；\n- **纹理重复或对称的物体：** 这类物体会导致建模软件在匹配特征点时产生混淆。如：栏杆。\n\n## 3. 拍摄方式\n\n重叠度是保证三维模型完整度的重要指标，重叠度是指相邻照片之间所摄内容的重叠程度，无论您在采集何种形状的物体都需要保证相邻照片的重叠度不低于 60%；\n\n- **柱状物体：** 围绕物体进行拍摄时，建议每隔一定的角度（如15度或20度）拍摄一张照片，以确保足够的重叠度。\n- **平面物体：** 从左到右、从上到下逐层拍摄时，同样要确保每张照片之间的重叠度足够高。对于大型平面物体，建议使用三脚架和遥控器来确保稳定性和拍摄的一致性。\n\n## 4. 周围环境\n\n在进行三维模型数据采集时，周围环境的选择和设置对最终效果有着重要影响。以下是一些关于周围环境的建议：\n\n- **光线条件：** 在较明亮的地方进行采集，这有助于确保照片清晰度和细节。如果环境光线不足，可以考虑使用灯箱或补光灯来增强光线。确保光线均匀分布，避免强烈的光影对比和阴影。\n- **物件位置稳定性：** 物件放置后，在拍摄过程中不要改变其与环境的相对位置。这样可以确保每张照片中物件的位置和角度一致，有助于建模软件在匹配特征点时更加准确。\n- **背景选择：** 尽量挑选背景单一的拍摄环境，避免在杂乱的环境下拍摄。单一背景有助于减少建模软件在识别特征点时的干扰，提高建模的精度和效率。\n\n## 5. 成像质量\n\n成像质量是影响三维模型质量的关键因素之一。以下是一些关于成像质量的建议：\n\n- **照片清晰度：** 确保照片清晰，避免出现模糊、失焦等情况。使用高质量的相机和镜头，以及合适的拍摄参数，可以获得更清晰的照片。\n- **曝光控制：** 避免照片过曝或是过暗。过曝的照片会导致高亮区域失去细节，而过暗的照片则会影响整体画面的清晰度。合理设置曝光值，确保照片中的细节得以保留。\n- **照片检查与补拍：** 在上传照片之前，对照片进行检查，删除不合格的照片。不合格的照片包括模糊、失焦、过曝、过暗等。如果发现有缺失或不合格的照片，必要时进行重新补拍，以确保数据的完整性和准确性。","headings":[{"id":"equipment","title":"1. 拍照设备选择","level":2},{"id":"subject","title":"2. 采集对象选择","level":2},{"id":"shooting","title":"3. 拍摄方式","level":2},{"id":"environment","title":"4. 周围环境","level":2},{"id":"quality","title":"5. 成像质量","level":2}],"status":"text_content","image_count":0},{"slug":"ath53ywyay4w20cu","id":"doc-ath53ywyay4w20cu","title":"创建物体","parents":["快速开始","快速了解“我的模型”"],"text":"为了通过见得空间平台创建并构建三维模型，你可以按照以下步骤进行操作：\n\n## 1. 下载见得空间APP\n\n- 使用iPhone手机，通过官方链接或搜索名称下载见得空间APP。\n- https://itunes.apple.com/cn/app/id6478824436?mt=8\n- 安装并打开APP后，按照提示进行注册并登录您的见得空间账号。\n\n## 2. 进入工作台\n\n- 在APP底部导航栏找到并点击【工作台】功能。\n- 你也可以直接点击APP界面中间的“+”号来直接创建模型任务。\n\n## 3. 创建模型任务\n\n- 在顶部操作栏中，点击【+】按钮开始创建新的模型任务。\n- 在弹出的选项中选择【物体】，然后选择新建类型：\n  - 半球引导采集：适用于需要全方位捕捉的模型。\n  - 图像漂浮采集：适用于动态或不稳定环境，如无人机航拍。\n  - 常规采集：适用于常规拍摄模型。\n  - 从相册导入：适用于已有数据的情况。\n- 选择创建方式后，填写模型的名称、描述等相关信息，然后点击【保存】以保存设置\n\n## 4. 选择建模类型与建模时间\n\n- 在新建任务页面中，根据实际需要选择建模类型\n  - 摄影测量模型：这是一种基于摄影技术获取空间对象的几何位置、形状和尺寸等信息的测量方法。\n  - 3DGS模型：使用数百万个3D高斯来明确表示场景，并凭借可微分的渲染算法保证了实时渲染能力。\n  - NeuS模型：NeRF及其变体主要使用隐式的基于坐标的模型将空间坐标映射到像素值，来捕捉场景的3D几何结构\n\n## 5. 启动建模\n\n- 在保存所有设置后，选择【建模】选项来启动建模过程。\n- 根据所选的创建方式，上传对应的照片数据。如果是半球引导采集、图像漂浮采集或常规采集，请按照APP的指引进行拍摄并上传照片；如果是从相册导入，请选择并上传已有的照片。\n- 上传完成后，等待系统自动进行三维模型构建的计算过程。\n\n## 6. 等待建模完成\n\n- 建模过程可能需要一段时间，具体时间取决于照片数量、质量以及服务器的负载情况。\n- 在等待期间，你可以继续创建其他任务或处理其他事情。\n- 一旦建模完成，任务列表中将显示“建模成功”的状态。\n\n## 7. 查看模型\n\n- 返回到【工作台-我的模型】页面，在列表中找到你刚刚构建的模型。\n- 点击对应模型，你将能够在线浏览三维模型的效果，包括旋转、缩放等操作，以便更全面地查看模型的细节。\n\n⚠️ 注意\n\n（1） 物件模型仅支持JPG格式的照片；（2） 物件建模单个任务数量限制为10-400张，并不是数量越多效果越好，关键是保证同一个位置被多张照片拍摄到；（3） 在上传过程中请勿关闭页面或浏览器，否则数据将无法上传。如果发生该情况，可以再次选择同一组照片，系统会自动过滤已上传的数据。","headings":[{"id":"ath53ywyay4w20cu-h1","title":"1. 下载见得空间APP","level":2},{"id":"ath53ywyay4w20cu-h2","title":"2. 进入工作台","level":2},{"id":"ath53ywyay4w20cu-h3","title":"3. 创建模型任务","level":2},{"id":"ath53ywyay4w20cu-h4","title":"4. 选择建模类型与建模时间","level":2},{"id":"ath53ywyay4w20cu-h5","title":"5. 启动建模","level":2},{"id":"ath53ywyay4w20cu-h6","title":"6. 等待建模完成","level":2},{"id":"ath53ywyay4w20cu-h7","title":"7. 查看模型","level":2}],"status":"text_content","image_count":0},{"slug":"kgesli4geky2dg42","id":"doc-kgesli4geky2dg42","title":"创建场景","parents":["快速开始","快速了解“我的模型”"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"nr48agpelgw7y5wi","id":"doc-nr48agpelgw7y5wi","title":"模型浏览与编辑","parents":["快速开始","快速了解“我的模型”"],"text":"处理完成后，可以在线浏览并对模型进行编辑模型编辑主要有以下功能：\n\n## 1.编辑功能\n\n- 变换设置：包括旋转功能、平移功能、缩放功能等基础设置。\n\n- 校正设置：通过绘制矩形框、指定半径的圆或涂抹来选择对象进行校正\n\n- 整体裁剪：包括立方体裁剪、圆柱体裁剪、球体裁剪、平面裁剪。\n\n- 精细化裁剪：在复杂的模型中，允许用户选择特定的点、面或连通体进行裁剪。\n\n## 2.全局设置\n\n- 背景设置：添加纯色、图片、天空盒（通常用于3D渲染）来创建逼真的环境。\n\n- 背景音乐：允许用户添加、选择、播放和循环背景音乐。\n\n- 视频制作：通过创建视图轨迹生成视频，允许用户将编辑的结果保存到相册。\n\n- 入场动画：设置模型进入场景时的动画效果。\n\n- 地面设置：包括地面和网格，选择不同类型的地面效果。\n\n- 环境光设置：调整环境光的强度，以改变场景的整体照明。\n\n- 后期处理：应用各种后期处理效果，如色彩映射、锐化、炫光等，以改善或改变模型展示的效果。\n\n- 热点设置：包括文本热点、图片热点、视频热点以及列表功能，在场景中添加可点击的文本链接或信息提示。\n\n- 测量设置：提供工具来测量对象或场景中的距离、面积或体积。\n\n## 3.视图设置\n\n- 观看范围：在模型浏览时可以查看的模型或场景的边界或区域\n\n- 视角控制：在模型浏览时能够如何查看模型或场景的能力，包括旋转、平移、缩放等。\n\n- 透视/正交：支持模拟了人眼观察世界的方式，提供更真实和自然的视觉体验。也支持基于平行的直线和等距线条浏览模型。\n\n- 视图显示：在模型浏览时可以设置不同的视图模式等。\n\n⚠️ 注意\n\n材质设置功能适合用于C4D、3DMax等建模软件输出的手工模型。","headings":[{"id":"nr48agpelgw7y5wi-h1","title":"1.编辑功能","level":2},{"id":"nr48agpelgw7y5wi-h2","title":"2.全局设置","level":2},{"id":"nr48agpelgw7y5wi-h3","title":"3.视图设置","level":2}],"status":"text_content","image_count":0},{"slug":"lwobeg7l0ms1d8gd","id":"doc-lwobeg7l0ms1d8gd","title":"平面AR体验","parents":["快速开始","快速了解“我的模型”"],"text":"平面AR体验是一种将虚拟模型与现实世界平面结合的技术，使用户能够在真实环境中直观地感知和理解3D模型。以下是平面AR体验的详细流程：\n\n## 1. 进入AR体验\n\n- 浏览模型页面：首先，用户需要进入浏览页面页面。浏览对应的模型。\n- 点击【AR体验】：在模型浏览页面上，用户需要点击【AR体验】按钮，以启动平面AR体验功能\n\n## 2. 模型展示\n\n- 识别平面：启动AR体验后，应用会提示用户选择一个平面来放置虚拟模型。这通常是通过移动手机来扫描并识别周围的平面，如桌面、地板等。\n- 放置模型：一旦平面被成功识别，用户就可以将虚拟模型放置在该平面上。模型会自动根据平面的大小和角度进行适应和校准。\n- 观察模型：放置完成后，用户可以在现实世界的平面上看到叠加的虚拟模型。这些模型会以逼真的方式展示在平面上，用户可以直观地理解和感知产品的外观和结构。\n\n## 3. 交互操作\n\n- 旋转模型：在平面AR体验中，用户可以通过触摸屏幕或手势来控制模型的旋转。通过旋转模型，用户可以从不同角度观察模型的细节和特性。\n- 缩放模型：除了旋转外，用户还可以对模型进行缩放操作。通过放大或缩小模型，用户可以更详细地查看模型的特定部分或获得更全面的视角。\n- 移动模型：在平面AR体验中，用户还可以将模型移动到不同的位置。这使用户能够在不同的平面上展示模型，或者与其他物体进行交互和比较。","headings":[{"id":"lwobeg7l0ms1d8gd-h1","title":"1. 进入AR体验","level":2},{"id":"lwobeg7l0ms1d8gd-h2","title":"2. 模型展示","level":2},{"id":"lwobeg7l0ms1d8gd-h3","title":"3. 交互操作","level":2}],"status":"text_content","image_count":0},{"slug":"vz1cpipbb9k20qgf","id":"doc-vz1cpipbb9k20qgf","title":"下载与分享","parents":["快速开始","快速了解“我的模型”"],"text":"对于建模成功的模型，点击右上方的【下载】，获得 OBJ 格式的三维模型文件，可以导入 3DMax 等建模软件中对模型进行后处理。\n\n点击右上方的【分享】生成链接，通过复制链接、代码、图片等多种方式让其他人可以随时随地浏览你的作品。\n\n⚠️ 注意\n\n（1） 分享功能提供有效期、密码保护、用户水印等功能保证你的数据安全；（2） 对于分享的链接可以随时进行收回，收回后该链接将无法访问。","headings":[],"status":"text_content","image_count":0},{"slug":"ui7fhrw63d2kkrx0","id":"doc-ui7fhrw63d2kkrx0","title":"作品发布","parents":["快速开始","快速了解“我的模型”"],"text":"将模型设置封面并发布到发现广场的流程可以分为以下几个步骤：\n\n## 1. 点击发布功能\n\n- 对于建模成功的模型，点击右上方的【发布】按钮\n\n## 2. 选择图片/视频上传\n\n- 找到【+】按钮：在发布信息页面，点击【+】图标。\n- 选择添加方式：目前只支持选择一个视频，图片最多可以选择9张，\n  - 从原始数据选择：选择采集的图片/视频作为封面和展示内容。\n  - 拍摄图片/视频：允许用户直接通过设备的摄像头拍摄新的图片或视频。\n  - 从相册中导入：允许用户从设备的相册或照片库中导入图片。\n\n## 3. 设置封面\n\n- 默认第一个文件为封面，也可以通过左右滑动更改封面。\n\n## 4. 添加配乐和特效（可选）\n\n- 在图片或视频上，可以添加配乐、滤镜、贴纸、转场等特效。\n- 这些功能可以增强图片/视频的表现力和吸引力。\n\n## 5. 输入标题和描述\n\n- 在发布前，可以为图片或视频输入一个吸引人的标题和简短的描述。\n- 这有助于增加作品的曝光率和吸引力。\n\n## 6. 设置权限和发布\n\n- 根据需要，可以设置图片/视频的可见范围（如公开、仅好友可见等）。\n- 最后，点击“发布”按钮，将模型上传到抖音平台。","headings":[{"id":"ui7fhrw63d2kkrx0-h1","title":"1. 点击发布功能","level":2},{"id":"ui7fhrw63d2kkrx0-h2","title":"2. 选择图片/视频上传","level":2},{"id":"ui7fhrw63d2kkrx0-h3","title":"3. 设置封面","level":2},{"id":"ui7fhrw63d2kkrx0-h4","title":"4. 添加配乐和特效（可选）","level":2},{"id":"ui7fhrw63d2kkrx0-h5","title":"5. 输入标题和描述","level":2},{"id":"ui7fhrw63d2kkrx0-h6","title":"6. 设置权限和发布","level":2}],"status":"text_content","image_count":0},{"slug":"kkspyrtbr11rvkln","id":"doc-kkspyrtbr11rvkln","title":"3D打印教程","parents":["快速开始","快速了解“我的模型”"],"text":"本教程将指导您如何利用手机APP采集数据，并通过3D打印技术完美复刻现实生活中的物体。该流程特别适用于艺术品、手办或具有纪念意义的实物数字化。\n\n## 第一步：三维建模（数据采集）\n\n- 准备环境：将目标物体（如雕像、摆件）放置在光线充足、背景相对简单的位置。\n- 手机拍摄：打开“见得3D”建模APP。\n- 拍摄技巧：围绕物体分上、中、下三个不同高度各环绕拍摄一圈。\n- 重叠度要求：确保相邻照片之间的重叠区域在60%-80% 之间。\n- 稳定性：保持手机平稳，避免画面模糊，以保证生成的模型细节清晰。\n\n## 第二步：模型编辑与导出\n\n模型初步生成后，需要进行简单的“精修”以达到打印标准。\n\n- 裁剪模型：在APP内常规裁剪工具，剔除拍摄时带入的桌面、背景等无关元素。\n- 修复补面：检查模型表面。若存在由于光线或遮挡导致的空洞，需使用“补面”功能进行修复，确保模型是一个完整封闭的实体。\n- 导出发送：确认效果无误后，将模型文件打包压缩，发送至3D打印服务后台或客服人员。\n\n## 第三步：参数确认与切片设置\n\n在正式打印前，技术人员会进行专业的软件预处理。\n\n- 需求确认：告知客服您所需的最终尺寸、打印材质（如树脂、PLA等）以及颜色要求。\n- 专业切片：技术人员会将模型导入专业软件（ Magics）。\n- 调整姿态：优化模型摆放位置以减少支撑。\n- 添加支撑：为悬空部位增加必要的支撑结构，防止打印过程中坍塌。\n- 效果预览：您可以查看最终的预览效果图，确认无误后即可排单生产。\n\n## 第四步：3D打印生产\n\n进入实际生产环节，此过程由专业的3D打印设备完成。\n\n- 启动设备：确认模型路径后，启动3D打印机（FDM 或 SLA 设备）。\n- 逐层堆叠：打印头（或激光/投影）将按照切片指令，将材料层层堆叠，从底座开始逐渐生长出物体的形状。\n- 进度监控：系统会实时监控打印状态，确保成型精度。\n\n## 第五步：后处理与成品交付\n\n- 去除支撑：打印完成后，需要人工小心去除多余的支撑材料。\n- 清洗打磨：根据材质要求进行清洗（如树脂件需酒精清洗）和表面打磨。\n- 最终成品：您将得到一个与原物高度还原的缩小版或同比例复刻品。\n\n温馨提示：拍摄时的光线越均匀，生成的模型纹理就越真实。对于表面反光严重（如玻璃、不锈钢）的物体，建议先喷涂显影剂再进行拍摄。","headings":[{"id":"kkspyrtbr11rvkln-h1","title":"第一步：三维建模（数据采集）","level":2},{"id":"kkspyrtbr11rvkln-h2","title":"第二步：模型编辑与导出","level":2},{"id":"kkspyrtbr11rvkln-h3","title":"第三步：参数确认与切片设置","level":2},{"id":"kkspyrtbr11rvkln-h4","title":"第四步：3D打印生产","level":2},{"id":"kkspyrtbr11rvkln-h5","title":"第五步：后处理与成品交付","level":2}],"status":"text_content","image_count":0},{"slug":"ar-2d-marker-spec","id":"doc-ar-2d-marker-spec","title":"2D标识图规范","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"## 1.2D标识图概述\n\n2D标识图是指在增强现实（Augmented Reality，简称AR）技术中，用于触发或激活AR体验的特定图像或图案。这些图片通过AR应用程序或设备（如智能手机、AR眼镜等）的摄像头进行扫描和识别，进而在真实环境中叠加虚拟内容，为用户提供沉浸式的增强现实体验。\n\n## 2. 2D标识图格式\n\n- 支持的图片格式通常为**JPG**或**PNG**。JPG文件应确保是RGB无灰度，避免使用带有Alpha通道的32位图片。\n\n## 3. 2D标识图内容\n\n- **图案丰富**：图片中的图案应尽可能丰富，避免使用过多的文字（因为文字容易与背景冲突）。\n- **避免镜面反射和高光**：识别区域应避免有镜面反射和高光，这些都会影响识别效果。\n- **避免重复元素**：图片中应避免有大量的重复元素，因为这可能会干扰识别算法。\n\n## 4. 提升识别率的技巧\n\n- **纹理分布**：让纹理丰富的区域尽量分布在图片中心，这有助于提高识别率。\n- **留白**：根据实际情况，可以在图片的四周或两边留白，这也有助于提升识别效果。\n\n## 5. 拍摄与处理\n\n- **拍摄环境**：应在光线充足、无遮挡的环境下拍摄识别图片，避免极端天气条件。\n- **图片处理**：拍摄后的图片可能需要进行一些处理，如透视变换、裁剪等，以去除不必要的干扰并突出识别区域。\n\n## 6. 图片分辨率与压缩\n\n- **分辨率**：虽然提高分辨率不会直接提高识别性能，但图片的分辨率至少应为**300x300像素**以确保足够的清晰度。\n- **避免过度压缩**：对于JPEG文件，应避免过度压缩以保留足够的图像细节。","headings":[{"id":"ar-2d-marker-spec-h1","title":"1.2D标识图概述","level":2},{"id":"ar-2d-marker-spec-h2","title":"2. 2D标识图格式","level":2},{"id":"ar-2d-marker-spec-h3","title":"3. 2D标识图内容","level":2},{"id":"ar-2d-marker-spec-h4","title":"4. 提升识别率的技巧","level":2},{"id":"ar-2d-marker-spec-h5","title":"5. 拍摄与处理","level":2},{"id":"ar-2d-marker-spec-h6","title":"6. 图片分辨率与压缩","level":2}],"status":"text_content","image_count":0},{"slug":"ar-new-2d-marker","id":"doc-ar-new-2d-marker","title":"新建2D标识图","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"## 1. 进入工作台\n\n- 在APP底部导航栏找到并点击【工作台】功能，将左上角的【我的模型】按钮切换为【我的AR】，点击\n- 你也可以直接点击APP界面中间的“+”号来直接创建模型任务。\n\n## 2. 新建2D标识图\n\n- 在顶部操作栏中，点击【+】按钮开始新建2D标识图。\n- 在弹出的选项中选择【2D标识图】，然后选择新建类型：\n  - **拍摄：**适用于需要即时捕捉或自定义的2D标识图。\n  - **从手机相册选择：**适用于已经存在于手机相册中的图片。\n  - **从素材库选择：**适用于APP提供的预设或已保存图片。\n- 选择创建方式后，填写2D标识图的名称、描述等相关信息，然后点击【保存】以保存设置。","headings":[{"id":"ar-new-2d-marker-h1","title":"1. 进入工作台","level":2},{"id":"ar-new-2d-marker-h2","title":"2. 新建2D标识图","level":2}],"status":"text_content","image_count":0},{"slug":"ar-editor","id":"doc-ar-editor","title":"AR编辑器","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"新建2D标识图完成后，可以在线编辑并AR体验主要有以下功能：\n\n## 1.添加素材功能\n\n- **图片：**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、拍照导入、相册导入\n  - **支持的图片格式**：JPEG、PNG\n- **视频：**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、拍照导入、相册导入\n  - **支持的视频格式：**MP4\n- **模型：**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择\n  - **支持的模型格式：**Obj、Fbx、JITF、las、blender\n- **特殊几何体：**\n  - **来源与添加方式**：从公共素材选择\n  - **包括类型：**形状、文本、外框、箭头、图标\n- **灯光：**\n  - **来源与添加方式：**新建灯光\n  - **聚光灯：**投射出来的灯光可以影响光束内的物体，并产生阴影和特殊效果。\n  - **点光源：**点光源是一种理想化的质点点光源，类似于人造灯泡，具有向四周均匀发射光线的特性。\n  - **平行光：**平行光是模拟太阳光等来自远方的光源，光线几乎是平行的，照射到物体上形成明显的阴影。\n- **灯光组预设：**\n  - **概述：**指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。\n  - **来源与添加方式：**从公共素材选择、新建灯光组预设\n\n## 2.全局设置\n\n- **1. 背景设置**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、从相册导入、从拍照导入\n  - **包括类型：**颜色、图片、天空哥\n\n- **2. 背景音乐**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、手机录音\n  - **基本功能：**添加背景音乐，设置音量、删除背景音乐\n\n- **3. 视频制作**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、新建\n  - **操作细节：**\n\n创建关键帧制作视频：选择合适的视角来截取动画所需的场景或模型的不同角度，根据需要，可以调整视角的位置、大小和方向，确保能够捕捉到所需的动画细节。在创建完关键帧后，可以预览视频查看效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。\n\n手动录制视频：在【视频制作】设置中找到【手动录制】功能，并点击开始录制按钮。此时，你可以通过手指在屏幕上操作来控制视角的移动和变化。在录制过程中，你可以随时通过手指调整视角，并观察模型或场景在视角变化下的效果。当录制完成后，找到录制控制界面中的停止录制按钮，并点击结束录制。\n\n- **4. 入场动画**\n  - **来源与添加方式：**从公共素材选择、从个人素材选择、从视频制作导入\n  - **操作细节：**\n  - 选择预设的入场动画模板。\n  - 自定义动画效果，如淡入、缩放、旋转等。\n  - 设置动画的速度和持续时间。\n\n- **5. 地面设置**\n  - **包括类型：**格网、地面\n  - **基本功能：**选择地面/格网，设置颜色、设置高度\n\n- **6. 环境光设置**\n  - **概述：**环境光是从周围环境的各个方向投射过来，在空间中近似均匀分布的光线。也就是说，在任何位置、任何方向上，环境光的强度都是一样的。\n  - **包括类型：**环境光强度、选择天空盒\n\n- **7. 后期处理**\n  - **概述：**后期处理是提升模型质量的关键步骤，通过色彩、细节、光影等方面的调整和优化，能够使模型更加真实、细腻和生动。\n  - **操作细节：**\n\n选择预设的滤镜效果。\n\n调整场景的亮度、对比度、饱和度等参数。\n\n应用特殊效果，如模糊、HDR等。\n\n- **8. 热点设置**\n  - **功能描述：**在AR场景中设置交互热点，用户可以通过点击或触摸与这些热点进行交互。\n  - **操作细节：**\n  - 在场景中放置热点。\n  - 为热点分配触发事件（如点击、触摸）。\n  - 设置热点被触发后的动作（如显示文本、播放声音、跳转页面等）。\n\n- **9. 测量设置**\n  - **功能描述（如果AR编辑器支持测量功能）：**允许用户在AR场景中进行测量，如长度、面积等。\n  - **操作细节（如果支持）：**\n  - 选择测量工具（如直尺、面积测量器等）。\n  - 在场景中放置测量起点和终点。\n  - 显示测量结果（如数值、单位等）。\n\n## 3.视图设置\n\n- **观看范围：**在模型浏览时可以查看的模型或场景的边界或区域\n\n- **视图显示：**在模型浏览时可以设置不同的视图模式等。","headings":[{"id":"ar-editor-h1","title":"1.添加素材功能","level":2},{"id":"ar-editor-h2","title":"2.全局设置","level":2},{"id":"ar-editor-h3","title":"3.视图设置","level":2}],"status":"text_content","image_count":0},{"slug":"ar-experience","id":"doc-ar-experience","title":"AR体验","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"## 1. 识别2D标识图：\n\n- **单图识别与多图识别入口不同：**AR体验入口分为单图识别和多图识别，AR编辑器里的【AR】按钮是单图识别，图片浏览页面下面的【AR体验】为单图识别，右上角的【AR】为多图识别，可以根据需求进行AR体验。\n- **识别图少于12张与大于12张体验方式不同：**当图片数量少于12张时，用户可以一边体验一边加载虚拟内容，当图片数量大于12张时，需要点击【开始识别】进行体验，\n\n## 2. 加载虚拟内容：\n\n- **加载预先编辑存储的内容：**当2D标识图被成功识别后，应用会加载与该标识图关联的虚拟内容（如3D模型、动画、视频、音频等）。\n- **叠加虚拟内容：**加载完成后，虚拟内容会被精确地叠加到识别到的2D标识图上。用户可以通过移动手机来改变视角，观察虚拟内容与真实场景的互动效果。\n\n## 3. 交互体验：\n\n- **支持AR体验与编辑：**用户可以与叠加的虚拟内容进行交互，如触摸、拖动、缩放等。应用可以根据用户的交互行为，触发不同的动画效果、声音反馈等，提升用户的参与感和沉浸感。","headings":[{"id":"ar-experience-h1","title":"1. 识别2D标识图：","level":2},{"id":"ar-experience-h2","title":"2. 加载虚拟内容：","level":2},{"id":"ar-experience-h3","title":"3. 交互体验：","level":2}],"status":"text_content","image_count":0},{"slug":"ar-save-share","id":"doc-ar-save-share","title":"保存与分享","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"ar-publish","id":"doc-ar-publish","title":"作品发布","parents":["快速开始","快速了解“我的AR”","创建2D标识图"],"text":"将标识图设置封面并发布到发现广场的流程可以分为以下几个步骤：\n\n## 1. 点击发布功能\n\n- 对于编辑虚拟内容的标识图，点击右上方的【发布】按钮。\n\n## 2. 选择图片/视频上传\n\n- **找到【+】按钮：**在发布信息页面，点击【+】图标。\n- **选择添加方式：**目前只支持选择一个视频，图片最多可以选择9张，\n  - **默认轮播图：**选择2D标识图作为封面和展示内容。\n  - **从录制视频库选择：**允许用户从已录制的视频库中选择视频内容。\n  - **拍摄图片/视频：**允许用户直接通过设备的摄像头拍摄新的图片或视频。\n  - **从相册中导入：**允许用户从设备的相册或照片库中导入图片。\n\n## 3. 设置封面\n\n  - 默认第一个文件为封面，也可以通过左右滑动更改封面。\n\n## 4. 添加配乐和特效（可选）\n\n  - 在图片或视频上，可以添加配乐、滤镜、贴纸、转场等特效。\n  - 这些功能可以增强图片/视频的表现力和吸引力。\n\n## 5. 输入标题和描述\n\n  - 在发布前，可以为图片或视频输入一个吸引人的标题和简短的描述。\n  - 这有助于增加作品的曝光率和吸引力。\n\n## 6. 设置权限和发布\n\n  - 根据需要，可以设置图片/视频的可见范围（如公开、仅好友可见等）。\n  - 最后，点击“发布”按钮，将模型上传到抖音平台。","headings":[{"id":"ar-publish-h1","title":"1. 点击发布功能","level":2},{"id":"ar-publish-h2","title":"2. 选择图片/视频上传","level":2},{"id":"ar-publish-h3","title":"3. 设置封面","level":2},{"id":"ar-publish-h4","title":"4. 添加配乐和特效（可选）","level":2},{"id":"ar-publish-h5","title":"5. 输入标题和描述","level":2},{"id":"ar-publish-h6","title":"6. 设置权限和发布","level":2}],"status":"text_content","image_count":0},{"slug":"ar-create-3d-marker","id":"doc-ar-create-3d-marker","title":"创建3D标识图","parents":["快速开始","快速了解“我的AR”"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"ar-create-object","id":"doc-ar-create-object","title":"创建物体","parents":["快速开始","快速了解“我的AR”"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"ar-create-scene","id":"doc-ar-create-scene","title":"创建场景","parents":["快速开始","快速了解“我的AR”"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"quick-my-vr","id":"doc-quick-my-vr","title":"快速了解“我的VR”","parents":["快速开始"],"text":"","headings":[],"status":"confirmed_empty","image_count":0},{"slug":"my-assets-overview","id":"doc-my-assets-overview","title":"概述","parents":["快速开始","快速了解“我的素材”"],"text":"- 个人素材是用户自己创作、收集或购买的，专属于自己的素材资源，可以进行添加、编辑、管理。\n- 适用场景：可以用于AR编辑器、我的模型、我的AR","headings":[],"status":"text_content","image_count":0},{"slug":"my-assets-categories","id":"doc-my-assets-categories","title":"分类","parents":["快速开始","快速了解“我的素材”"],"text":"## 1. 图片\n\n图片是后期处理中最基本的素材之一，可以用于创建视觉元素、背景、纹理等。\n\n## 2. 视频\n\n视频可以展示连续的动作和场景，为观众带来更加生动的视觉体验。\n\n## 3. 模型\n\n模型是三维空间中物体的数字化表示，通过后期处理可以将其渲染成逼真的三维图像。\n\n## 4. 贴图\n\n贴图可以为模型提供表面的纹理和细节，使其看起来更加真实。\n\n## 5. 特殊几何体\n\n特殊几何体具有独特的形状和结构，可以用于创建独特的视觉效果和场景。\n\n## 6. 材质球\n\n在3D建模和渲染中，材质球用于定义模型表面的物理属性，如颜色、光泽度、反射等。\n\n## 7. 灯光预设\n\n指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。\n\n## 8. 天空盒\n\n选择天空盒（通常用于3D渲染）来创建逼真的环境。\n\n## 9. 视频制作\n\n可以选择预览视频制作效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。\n\n## 10. 行为\n\n行为指的是对象的动态属性，如移动、旋转、缩放等。\n\n## 11. 入场动画\n\n选择预设的入场动画模板，用户可以根据需要为特定元素或场景添加合适的入场动画效果。","headings":[{"id":"my-assets-categories-h1","title":"1. 图片","level":2},{"id":"my-assets-categories-h2","title":"2. 视频","level":2},{"id":"my-assets-categories-h3","title":"3. 模型","level":2},{"id":"my-assets-categories-h4","title":"4. 贴图","level":2},{"id":"my-assets-categories-h5","title":"5. 特殊几何体","level":2},{"id":"my-assets-categories-h6","title":"6. 材质球","level":2},{"id":"my-assets-categories-h7","title":"7. 灯光预设","level":2},{"id":"my-assets-categories-h8","title":"8. 天空盒","level":2},{"id":"my-assets-categories-h9","title":"9. 视频制作","level":2},{"id":"my-assets-categories-h10","title":"10. 行为","level":2},{"id":"my-assets-categories-h11","title":"11. 入场动画","level":2}],"status":"text_content","image_count":0},{"slug":"public-assets-overview","id":"doc-public-assets-overview","title":"概述","parents":["快速开始","快速了解“公共素材”"],"text":"- 公共素材是由平台提供的，可供所有用户免费或按特定条件使用的素材资源，不能进行添加和删除。\n- 适用场景：可以用于AR编辑器、我的模型、我的AR。","headings":[],"status":"text_content","image_count":0},{"slug":"public-assets-categories","id":"doc-public-assets-categories","title":"分类","parents":["快速开始","快速了解“公共素材”"],"text":"## 1. 图片\n\n图片是后期处理中最基本的素材之一，可以用于创建视觉元素、背景、纹理等。\n\n## 2. 视频\n\n视频可以展示连续的动作和场景，为观众带来更加生动的视觉体验。\n\n## 3. 模型\n\n模型是三维空间中物体的数字化表示，通过后期处理可以将其渲染成逼真的三维图像。\n\n## 4. 贴图\n\n贴图可以为模型提供表面的纹理和细节，使其看起来更加真实。\n\n## 5. 特殊几何体\n\n特殊几何体具有独特的形状和结构，可以用于创建独特的视觉效果和场景。\n\n## 6. 材质球\n\n在3D建模和渲染中，材质球用于定义模型表面的物理属性，如颜色、光泽度、反射等。\n\n## 7. 灯光预设\n\n指预先设置好的一组灯光参数和效果的集合。这些预设可以根据不同的场景、氛围或需求进行编辑，以便快速调用和应用。\n\n## 8. 天空盒\n\n选择天空盒（通常用于3D渲染）来创建逼真的环境。\n\n## 9. 视频制作\n\n可以选择预览视频制作效果，如果需要，可以对关键帧进行进一步的调整，如改变视角的速度、加速度等，以获得更自然的动画效果。\n\n## 10. 行为\n\n行为指的是对象的动态属性，如移动、旋转、缩放等。\n\n## 11. 入场动画\n\n选择预设的入场动画模板，用户可以根据需要为特定元素或场景添加合适的入场动画效果。","headings":[{"id":"public-assets-categories-h1","title":"1. 图片","level":2},{"id":"public-assets-categories-h2","title":"2. 视频","level":2},{"id":"public-assets-categories-h3","title":"3. 模型","level":2},{"id":"public-assets-categories-h4","title":"4. 贴图","level":2},{"id":"public-assets-categories-h5","title":"5. 特殊几何体","level":2},{"id":"public-assets-categories-h6","title":"6. 材质球","level":2},{"id":"public-assets-categories-h7","title":"7. 灯光预设","level":2},{"id":"public-assets-categories-h8","title":"8. 天空盒","level":2},{"id":"public-assets-categories-h9","title":"9. 视频制作","level":2},{"id":"public-assets-categories-h10","title":"10. 行为","level":2},{"id":"public-assets-categories-h11","title":"11. 入场动画","level":2}],"status":"text_content","image_count":0},{"slug":"kzgddtsr514f95p4","id":"doc-kzgddtsr514f95p4","title":"“我的模型”详细教程","parents":["详细教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"nxyk3gtlemekta58","id":"doc-nxyk3gtlemekta58","title":"“我的AR”详细教程","parents":["详细教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"zxiizge5tvrfyv6s","id":"doc-zxiizge5tvrfyv6s","title":"“我的VR”详细教程","parents":["详细教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"brwe1sh5ec8ebuy1","id":"doc-brwe1sh5ec8ebuy1","title":"“我的素材”详细教程","parents":["详细教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"ydt73hgkzzr7l2a9","id":"doc-ydt73hgkzzr7l2a9","title":"“公共素材”详细教程","parents":["详细教程"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"gcgqamtc4n5ph8z6","id":"doc-gcgqamtc4n5ph8z6","title":"会员功能","parents":[],"text":"## 1. 会员类型\n\n见得3D为您提供体验版与高级版不同层级的服务，以满足从个人爱好者到专业工作室的不同需求：\n\n体验版（免费版）：专为初学者和3D建模爱好者设计。您可以免费体验基础的摄影测量建模功能，探索3D数字化的乐趣。\n\n高级版（付费版）：专为追求高品质模型和高效产出的专业用户、设计师及工作室打造。解锁前沿的3DGS与NeuS建模技术，享受无限制的资源下载与导出特权。\n\n## 2. 会员权益\n\n| 功能模块 | 体验版 (免费) | 高级版 (付费) |\n| --- | --- | --- |\n| 建模类型 | 仅限摄影测量建模+1次3DGS与 NeuS建模体验 | 摄影测量 + 3DGS + NeuS |\n| 建模图片数量 | 单次建模最多300张图片，300秒视频 | 单次建模图片数量和视频数量无限制 |\n| 模型下载次数 | 10次 / 天 | 无限制下载 |\n| 模型导出格式 | 仅限1种OBJ格式 | 支持所有可用格式 (如 .fbx, .stl, .ply等) |\n| 3D打印特权 | 原价打印 | 首单8折，常驻9折优惠 |\n| 云端存储空间 | 2GB | 50GB+ 专属空间 |\n| 服务支持 | 社区支持 | 1对1专属客服 |\n|  | 排队建模 | 优先建模 |\n\n## 3. 定价方案\n\n| 套餐类型 | 价格 (原价) | 限时活动价 | 使用场景 |\n| --- | --- | --- | --- |\n| 月度会员 | ¥48 / 月 | ¥28 / 首月 | 适合短期项目或尝鲜用户，极低试错成本。 |\n| 季度会员 | ¥128 / 季 | ¥88 / 首季 | 适合有一定建模需求的小型工作室，性价比均衡。 |\n| 年度会员 | ¥398 / 年 | ¥298 / 首年 | 最推荐方案。适合长期从业者，折合每月仅约¥25。 |\n\n## 4. 如何成为会员\n\n目前，见得3D采用官方微信号人工开通模式，流程如下：\n\n- 关注公众号：在微信搜索并关注“见得3D”官方公众号或者再APP中查看“官方微信号”二维码。\n- 联系客服：点击菜单栏的“联系方式”或直接通过“官方微信号”二维码添加微信号。\n- 选择方案：根据客服提供的月度、季度或年度方案进行选择。\n- 完成支付：通过微信支付完成费用缴纳。\n- 账号升级：提供您的见得3D注册手机号或邮箱号，客服将在5分钟内为您完成账号升级。\n\n## 5. 查看会员权益\n\n您可以随时在App内查看当前的会员状态及详细权益\n\n- 打开“见得3D”App，点击底部导航栏“我的”。\n- 在个人中心页面顶部，点击您的头像或会员标识。\n- 进入“帮助文档”页面，即可查看所有已解锁的特权列表。\n\n## 6. 定制服务\n\n如果您有特殊的模型展示需求，例如：\n\n- •个性化展厅定制：为您的模型打造专属的虚拟展示空间。\n- •高级动效设计：为模型添加特定的交互或动画效果。\n- •品牌联名展示：在展示区域植入您的品牌元素。\n\n定制流程：请直接联系官方客服，说明您的具体需求，我们将为您提供一对一的方案设计与专属定价。","headings":[{"id":"gcgqamtc4n5ph8z6-h1","title":"1. 会员类型","level":2},{"id":"gcgqamtc4n5ph8z6-h2","title":"2. 会员权益","level":2},{"id":"gcgqamtc4n5ph8z6-h3","title":"3. 定价方案","level":2},{"id":"gcgqamtc4n5ph8z6-h4","title":"4. 如何成为会员","level":2},{"id":"gcgqamtc4n5ph8z6-h5","title":"5. 查看会员权益","level":2},{"id":"gcgqamtc4n5ph8z6-h6","title":"6. 定制服务","level":2}],"status":"text_content","image_count":0},{"slug":"ldx9mgbwtu9y01ee","id":"doc-ldx9mgbwtu9y01ee","title":"更新动态","parents":["产品资讯"],"text":"敬请期待","headings":[],"status":"placeholder_only","image_count":0},{"slug":"faq","id":"doc-faq","title":"常见问题FAQ","parents":[],"text":"","headings":[],"status":"confirmed_empty","image_count":0},{"slug":"khg6l5b699vgg3bc","id":"doc-khg6l5b699vgg3bc","title":"意见反馈","parents":["联系我们"],"text":"为了给您提供更好的服务，希望您能抽出几分钟时间，将您的感受和建议告诉我们，我们非常重视每位用户的宝贵意见，期待您的参与！\n\n填写链接：http://seegetspace.com/about","headings":[],"status":"text_content","image_count":0},{"slug":"tonm2emnigg4x8uf","id":"doc-tonm2emnigg4x8uf","title":"商务合作","parents":["联系我们"],"text":"联系电话：+86-18071548262\n\n邮箱：contact@seegetspace.com","headings":[],"status":"text_content","image_count":0},{"slug":"it121gbnx6qn8gra","id":"doc-it121gbnx6qn8gra","title":"联系客服","parents":["联系我们"],"text":"商务合作：contact@seegetspace.com\n\n简历投递：hr@seegetspace.com\n\n投资对接：ceo@seegetspace.com\n\n联系电话：+86-18071548262","headings":[],"status":"text_content","image_count":0},{"slug":"fcou6gcsle7k2g0w","id":"doc-fcou6gcsle7k2g0w","title":"新建模型","parents":["WEB端用户文档"],"text":"## 📁 文件导入说明\n\n支持格式：JPG、PNG、MP4、MOV 单个文件限制：最大 200MB\n\n### 一、点击选择（手动选择）\n\n| 操作方式 | 结果 | 说明 |\n| --- | --- | --- |\n| ✅ 选择文件 | 导入成功 | 直接识别你选中的图片或视频文件 |\n| ✅ 选择文件夹 | 导入成功 | 自动识别该文件夹内的所有图片或视频文件 |\n| ✅ 选择多层结构文件夹 | 导入成功 | 只识别该文件夹下面一层的图片或视频文件（更深的子文件夹里的文件不会识别） |\n| ❌ 选择空文件夹 | 导入失败 | 文件夹里没有文件，请选择有内容的文件夹 |\n| ❌ 选择不含图片/视频的文件夹 | 导入失败 | 文件夹里没有支持的图片或视频格式，请检查后再选 |\n\n### 二、拖拽上传（直接拖入）\n\n| 拖拽方式 | 结果 | 说明 |\n| --- | --- | --- |\n| ✅ 拖拽同类型文件夹 | 导入成功 | 文件夹内只包含图片和视频文件，系统会自动识别 |\n| ❌ 拖拽多个不同类型文件 | 导入失败 | 一次性拖入了多种类型的文件（比如图片+文档+压缩包），不符合“只允许单一类型”的要求，请重新整理后再拖入 |\n| ❌ 拖拽多层结构文件夹 | 导入失败 | 文件夹里面还套着子文件夹，不符合“只允许单层数据”的要求，请把文件放在同一层目录后再拖入 |\n| ❌ 拖拽单个不支持格式的文件 | 导入失败 | 拖入的文件不是 JPG、PNG、MP4 或 MOV 格式，请选择支持的格式 |\n| ❌ 拖拽超过 200MB 的文件 | 导入失败 | 单个文件超过 200MB，请压缩或选择较小的文件 |\n| ❌ 拖拽空文件夹 | 导入失败 | 文件夹里没有文件，请拖入有内容的文件夹 |\n| ❌ 拖拽不含图片/视频的文件夹 | 导入失败 | 文件夹里没有支持的图片或视频格式，请检查后再选 |\n\n### 三、其他通用情况\n\n| 情况 | 结果 | 说明 |\n| --- | --- | --- |\n| ⚠️ 同时拖拽文件和文件夹 | 导入失败 | 请单独拖拽文件或单独拖拽文件夹，不要混合拖入 |\n| ⚠️ 拖拽快捷方式/别名 | 导入失败 | 不支持快捷方式或别名文件，请拖拽真实的文件或文件夹 |\n| ⚠️ 网络中断或文件被占用 | 导入失败 | 请检查文件是否可正常访问，或稍后重试 |","headings":[{"id":"fcou6gcsle7k2g0w-h1","title":"📁 文件导入说明","level":2},{"id":"fcou6gcsle7k2g0w-h2","title":"一、点击选择（手动选择）","level":3},{"id":"fcou6gcsle7k2g0w-h3","title":"二、拖拽上传（直接拖入）","level":3},{"id":"fcou6gcsle7k2g0w-h4","title":"三、其他通用情况","level":3}],"status":"text_content","image_count":0},{"slug":"krgww5kx8k2z9twc","id":"doc-krgww5kx8k2z9twc","title":"导入模型","parents":["WEB端用户文档"],"text":"## 📦 3D模型导入说明\n\n支持格式：ZIP压缩包 或 单模型文件 支持文件类型：OBJ、PLY（PLY包括格网模型与3DGS模型） 单个文件限制：最大 200MB\n\n### 一、文件夹结构说明\n\n正确结构示意图：\n\nOBJ文件夹压缩包示意\n\nOBJ文件夹内的 JPG、MTL、OBJ 文件示意\n\n支持的OBJ/PLY文件组合方式：\n\n| 组合类型 | 包含文件 | 是否支持 |\n| --- | --- | --- |\n| ✅ 组合一 | OBJ/PLY + MTL | 支持 |\n| ✅ 组合二 | OBJ /PLY + JPG | 支持 |\n| ✅ 组合三 | OBJ /PLY + 多个JPG | 支持 |\n| ✅ 组合四 | OBJ /PLY + MTL + JPG | 支持 |\n| ✅ 组合五 | 单OBJ/PLY 文件（无配套文件） | 支持 |\n\n| 文件夹类型 | 结构示例 | 是否支持 |\n| --- | --- | --- |\n| ✅ 正确的单层文件夹结构 | 请参考上面的文件夹结构说明 | 支持 |\n| ❌ 多层文件夹结构 | 根文件夹 → 子文件夹 → 模型文件 | 不支持，请将模型、材质、贴图文件放在同一层文件夹内 |\n\n### 二、点击选择（手动选择）\n\n| 操作方式 | 结果 | 说明 |\n| --- | --- | --- |\n| ✅ 选择文件夹结构 | 导入成功 | 选择包含模型相关文件的文件夹，系统会自动识别 |\n| ✅ 选择单模型文件 | 导入成功 | 直接选中一个OBJ或PLY文件即可导入 |\n| ❌ 选择空文件夹 | 导入失败 | 文件夹里没有文件，请选择有内容的文件夹 |\n| ❌ 选择不含OBJ/PLY的文件夹 | 导入失败 | 文件夹里没有OBJ或PLY格式的模型文件，请检查后重新选择 |\n\n### 三、拖拽导入（直接拖入）\n\n| 拖拽方式 | 结果 | 说明 |\n| --- | --- | --- |\n| ✅ 拖拽符合要求的ZIP包 | 导入成功 | ZIP压缩包内包含正确的文件夹结构或单模型文件 |\n| ✅ 拖拽单模型文件 | 导入成功 | 直接拖入一个OBJ或PLY文件即可上传 |\n| ❌ 拖拽其他类型文件 | 导入失败 | 拖入的文件不是ZIP压缩包，也不是OBJ或PLY模型文件，请重新选择 |\n| ❌ 拖拽多层结构文件夹 | 导入失败 | 文件夹里面还套着多层子文件夹，不符合单层文件夹结构的要求，请把模型文件放在同一层目录后再拖入 |\n| ❌ 拖拽超过200MB的文件 | 导入失败 | 文件超过200MB，请压缩或选择较小的模型文件 |\n| ❌ 拖拽空ZIP包 | 导入失败 | 压缩包里没有文件，请拖入有内容的ZIP包 |\n| ❌ 拖拽含有OBJ/PLY但也有其他无关类型文件的文件夹 | 导入失败 | ZIP压缩包内除OBJ/PLY以外有不正确的文件类型 |\n| ❌ 拖拽为压缩的文件夹 | 导入失败 | 文件夹未压缩，请压缩后再重试 |\n\n### 四、其他通用情况\n\n| 情况 | 结果 | 说明 |\n| --- | --- | --- |\n| ⚠️ 同时拖拽多个文件/ZIP压缩包 | 导入失败 | 请一次只拖入一个ZIP压缩包或一个模型文件 |\n| ⚠️ 拖拽快捷方式/别名 | 导入失败 | 不支持快捷方式，请拖拽真实的文件或ZIP压缩包 |","headings":[{"id":"krgww5kx8k2z9twc-h1","title":"📦 3D模型导入说明","level":2},{"id":"krgww5kx8k2z9twc-h2","title":"一、文件夹结构说明","level":3},{"id":"krgww5kx8k2z9twc-h3","title":"二、点击选择（手动选择）","level":3},{"id":"krgww5kx8k2z9twc-h4","title":"三、拖拽导入（直接拖入）","level":3},{"id":"krgww5kx8k2z9twc-h5","title":"四、其他通用情况","level":3}],"status":"text_content","image_count":2}]</script>
+<script>
+(function(){
+  'use strict';
+  var docs=JSON.parse(document.getElementById('docs-data').textContent);
+  var byId={},bySlug={};docs.forEach(function(d){byId[d.id]=d;bySlug[d.slug]=d;});
+  var root=document.documentElement, home=document.getElementById('home'), pages=Array.prototype.slice.call(document.querySelectorAll('.doc-page'));
+  var outline=document.getElementById('outline-links'), tree=document.getElementById('nav-tree'), results=document.getElementById('search-results');
+  var search=document.getElementById('doc-search'), menu=document.getElementById('menu-toggle'), printButton=document.getElementById('print-page');
+  var active=null,toastTimer,scrollPending=false;
+  function closeMenu(){root.classList.remove('menu-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','打开文档目录');}
+  function openMenu(){root.classList.add('menu-open');menu.setAttribute('aria-expanded','true');menu.setAttribute('aria-label','关闭文档目录');}
+  menu.addEventListener('click',function(){if(root.classList.contains('menu-open'))closeMenu();else openMenu();});
+  document.getElementById('menu-overlay').addEventListener('click',closeMenu);
+  function setCurrent(doc){
+    active=doc;home.classList.toggle('active',!doc);
+    pages.forEach(function(page){page.classList.toggle('active',!!doc&&page.id===doc.id);});
+    document.getElementById('home-link').toggleAttribute('aria-current',!doc);
+    if(!doc)document.getElementById('home-link').setAttribute('aria-current','page');
+    document.querySelectorAll('.doc-link').forEach(function(link){
+      if(doc&&link.dataset.doc===doc.slug){link.setAttribute('aria-current','page');var p=link.parentElement;while(p&&p.id!=='nav-tree'){if(p.tagName==='DETAILS')p.open=true;p=p.parentElement;}}
+      else link.removeAttribute('aria-current');
+    });
+    outline.replaceChildren();
+    if(doc&&doc.headings.length){doc.headings.forEach(function(h){var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.title;a.className='level-'+h.level;outline.appendChild(a);});}
+    else {var empty=document.createElement('p');empty.className='empty-outline';empty.textContent=doc?'此篇没有分节标题。':'从左侧选择文档，查看本篇目录。';outline.appendChild(empty);}
+    document.title=doc?doc.title+' · 见得空间用户文档':'见得空间用户文档';
+    printButton.textContent=doc?'打印本篇':'打印全部';
+  }
+  function route(move){
+    var hash;try{hash=decodeURIComponent(location.hash.slice(1));}catch(_){hash='home';}
+    var target=document.getElementById(hash),doc=byId[hash];
+    if(!doc&&target){var article=target.closest('.doc-page');if(article)doc=byId[article.id];}
+    if(!doc){setCurrent(null);if(hash&&hash!=='home'&&hash!=='main')showToast('未找到对应文档，已返回首页');}
+    else setCurrent(doc);
+    closeMenu();
+    if(move){requestAnimationFrame(function(){if(doc&&target&&target.id!==doc.id){target.scrollIntoView({block:'start',behavior:'auto'});}else window.scrollTo({top:0,behavior:'auto'});updateOutline();});}
+  }
+  document.addEventListener('click',function(e){
+    var link=e.target.closest('a[href^="#"]');if(!link)return;
+    var hash=link.getAttribute('href');if(hash==='#main'){e.preventDefault();var heading=(active?document.getElementById(active.id):home).querySelector('h1');heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});heading.scrollIntoView({block:'start'});return;}
+    e.preventDefault();
+    if(location.hash===hash)route(true);else {history.pushState(null,'',hash);route(true);}
+  });
+  window.addEventListener('hashchange',function(){route(true);});
+  window.addEventListener('popstate',function(){route(true);});
+  function updateOutline(){
+    scrollPending=false;if(!active||!active.headings.length)return;
+    var current=active.headings[0].id;active.headings.forEach(function(h){if(document.getElementById(h.id).getBoundingClientRect().top<155)current=h.id;});
+    if(window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-8)current=active.headings[active.headings.length-1].id;
+    outline.querySelectorAll('a').forEach(function(a){if(a.hash==='#'+current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current');});
+  }
+  window.addEventListener('scroll',function(){if(!scrollPending){scrollPending=true;requestAnimationFrame(updateOutline);}},{passive:true});
+  function highlight(parent,text,term){
+    var lower=text.toLocaleLowerCase(),needle=term.toLocaleLowerCase(),pos=lower.indexOf(needle),last=0;
+    while(pos!==-1){parent.appendChild(document.createTextNode(text.slice(last,pos)));var mark=document.createElement('mark');mark.textContent=text.slice(pos,pos+term.length);parent.appendChild(mark);last=pos+term.length;pos=lower.indexOf(needle,last);}
+    parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+  function doSearch(){
+    var term=search.value.trim();tree.hidden=!!term;results.hidden=!term;results.replaceChildren();if(!term)return;
+    var key=term.toLocaleLowerCase();var matches=docs.filter(function(d){return(d.parents.join(' ')+' '+d.title+' '+d.text).toLocaleLowerCase().includes(key);});
+    var count=document.createElement('p');count.textContent=matches.length?'找到 '+matches.length+' 篇相关文档':'没有找到相关文档，请尝试其他关键词。';results.appendChild(count);
+    matches.forEach(function(d){
+      var link=document.createElement('a');link.href='#'+d.id;link.className='result-link';var title=document.createElement('strong');highlight(title,d.title,term);link.appendChild(title);
+      var trail=document.createElement('small');trail.className='result-path';trail.textContent=d.parents.join(' / ');link.appendChild(trail);var small=document.createElement('small'),text=d.text.replace(/\s+/g,' '),p=text.toLocaleLowerCase().indexOf(key),start=Math.max(0,p-24),snippet=(start?'…':'')+text.slice(start,start+100)+(text.length>start+100?'…':'');
+      highlight(small,snippet,term);link.appendChild(small);results.appendChild(link);
+    });
+  }
+  search.addEventListener('input',doSearch);
+  document.addEventListener('keydown',function(e){
+    if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();if(innerWidth<=850)openMenu();search.focus();}
+    if(e.key==='Escape'){if(search.value){search.value='';doSearch();}else closeMenu();}
+  });
+  function showToast(text){var toast=document.getElementById('toast');clearTimeout(toastTimer);toast.textContent=text;toast.hidden=false;toastTimer=setTimeout(function(){toast.hidden=true;},3200);}
+  document.getElementById('copy-link').addEventListener('click',async function(){
+    if(location.protocol==='file:'){showToast('本地文件无法生成分享链接，请打开在线页面后再复制');return;}
+    try{await navigator.clipboard.writeText(location.href);showToast('已复制当前页面链接');}catch(_){showToast('请从浏览器地址栏复制当前网址');}
+  });
+  window.addEventListener('beforeprint',function(){document.body.classList.toggle('printing-all',!active);});
+  window.addEventListener('afterprint',function(){document.body.classList.remove('printing-all');});
+  printButton.addEventListener('click',function(){window.print();});
+  root.classList.add('enhanced');route(true);
+})();
+</script>
 </body>
 </html>
